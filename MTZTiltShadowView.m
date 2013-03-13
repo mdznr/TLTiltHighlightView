@@ -15,9 +15,6 @@
 // Private properties.
 @interface MTZTiltShadowView ()
 
-// Our gradient layer.
-@property (nonatomic, strong) CAGradientLayer *gradientLayer;
-
 // Our motion manager.
 @property (nonatomic, strong) CMMotionManager *motionManager;
 
