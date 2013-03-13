@@ -26,7 +26,7 @@
 #pragma mark - Public Initializers
 
 // Allows support for using instances loaded from nibs or storyboards.
--(id)initWithCoder:(NSCoder *)aCoder
+- (id)initWithCoder:(NSCoder *)aCoder
 {
     if (!(self = [super initWithCoder:aCoder])) return nil;
     
@@ -46,7 +46,7 @@
 }
 
 // We need to stop our motionManager from continuing to update once our instance is deallocated.
--(void)dealloc
+- (void)dealloc
 {
     [self.motionManager stopAccelerometerUpdates];
 }
@@ -54,7 +54,7 @@
 #pragma mark - Private methods
 
 // Sets up the initial state of the view.
--(void)setup
+- (void)setup
 {
     // Set up the gradient
     [self setupGradient];
@@ -63,7 +63,7 @@
 }
 
 // Creates the gradient and sets up some default properties
--(void)setupGradient
+- (void)setupGradient
 {
     NSAssert(self.gradientLayer == nil, @"Gradient layer being set up more than once.");
     
@@ -84,7 +84,7 @@
 }
 
 // Starts the 
--(void)setupMotionDetection
+- (void)setupMotionDetection
 {
     NSAssert(self.motionManager == nil, @"Motion manager being set up more than once.");
     
@@ -93,8 +93,7 @@
     
     __weak __typeof(self) weakSelf = self;
     [self.motionManager startDeviceMotionUpdatesToQueue:[NSOperationQueue mainQueue] withHandler:^(CMDeviceMotion *motion, NSError *error) {
-        if (error)
-        {
+        if ( error ) {
             [weakSelf.motionManager stopDeviceMotionUpdates];
             return;
         }
@@ -104,22 +103,13 @@
 }
 
 // Updates the gradient layer to fill our bounds.
--(void)updateGradientLayerPosition
+- (void)updateGradientLayerPosition
 {
-    if ([[UIScreen mainScreen] scale] > 1)
-    {
-        // Running on a retina device
-        self.gradientLayer.frame = CGRectMake(0, CGRectGetHeight(self.bounds) - 1.5f, CGRectGetWidth(self.bounds), 1.5f);
-    }
-    else
-    {
-        // Running on a non-Retina device
-        self.gradientLayer.frame = CGRectMake(0, CGRectGetHeight(self.bounds) - 1, CGRectGetWidth(self.bounds), 1);
-    }
+	self.gradientLayer.frame = CGRectMake(0, CGRectGetHeight(self.bounds) - 1, CGRectGetWidth(self.bounds), 1);
 }
 
 // Updates the gradient's colours.
--(void)updateGradientColours
+- (void)updateGradientColours
 {
     self.gradientLayer.colors = @[(id)[[UIColor clearColor] CGColor],
                                   (id)[self.highlightColor CGColor],
@@ -128,14 +118,14 @@
 
 #pragma mark CoreMotion Methods
 
--(void)deviceMotionDidUpdate:(CMDeviceMotion *)deviceMotion
+- (void)deviceMotionDidUpdate:(CMDeviceMotion *)deviceMotion
 {
     // Called when the deviceMotion property of our CMMotionManger updates.
     // Recalculates the gradient locations.
     
     // Ration from the center which the centre of the gradient is permitted to move.
-    // (ie: the centre of the gradient may be 1/4 the distance of the view from the centre.)
-    const CGFloat maxDistanceRatioFromCenter = 4.0f;
+    // (ie: the centre of the gradient may be 1/3 the distance of the view from the centre.)
+    const CGFloat maxDistanceRatioFromCenter = 3.0f;
     
     // We need to account for the interface's orientation when calculating the relative roll. 
     CGFloat roll = 0.0f;
@@ -154,14 +144,14 @@
             break;
     }
     
-    // This will give us an interpolated value [-0.4 ... 0.4].
+    // This will give us an interpolated value [-0.3 ... 0.3].
     CGFloat interpolatedValue = sinf(roll) / maxDistanceRatioFromCenter;
     
-    // We need to convert our ration to a decimal (0.4, in this case).
+    // We need to convert our ration to a decimal (0.3, in this case).
     CGFloat maxDistanceDecimalFromCenter = maxDistanceRatioFromCenter / 10.0f;
     
     // Find the middle position for our gradient. This needs to be in the range of [0 ... 1].
-    CGFloat gradientMiddlePosition = (interpolatedValue + maxDistanceDecimalFromCenter) / (maxDistanceDecimalFromCenter * 2.0f);
+    CGFloat gradientMiddlePosition = 1 - (interpolatedValue + maxDistanceDecimalFromCenter) / (maxDistanceDecimalFromCenter * 2.0f);
     
     // Finally, update our gradient layer. 
     self.gradientLayer.locations = @[@(0), @(gradientMiddlePosition), @(1)];
@@ -169,14 +159,14 @@
 
 #pragma mark Overridden Methods
 
--(void)setFrame:(CGRect)frame
+- (void)setFrame:(CGRect)frame
 {
     [super setFrame:frame];
     
     [self updateGradientLayerPosition];
 }
 
--(void)setBounds:(CGRect)bounds
+- (void)setBounds:(CGRect)bounds
 {
     [super setBounds:bounds];
     
@@ -185,7 +175,7 @@
 
 #pragma mark - Overridden Properties
 
--(void)setHighlightColor:(UIColor *)highlightColor
+- (void)setHighlightColor:(UIColor *)highlightColor
 {
     _highlightColor = highlightColor;
     
