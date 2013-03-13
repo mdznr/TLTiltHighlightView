@@ -19,8 +19,8 @@
 		5EBEFCE516E6A86800C19486 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5EBEFCE216E6A86800C19486 /* Default@2x.png */; };
 		5EBEFCE616E6A90500C19486 /* TLTiltHighlightView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E9C08CE16E63BE70072CCC7 /* TLTiltHighlightView.m */; };
 		5EBEFCE716E6A94200C19486 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E9C08DC16E65E3F0072CCC7 /* main.m */; };
-		5EBEFCE816E6A95F00C19486 /* TLViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5E9C08DA16E65E3F0072CCC7 /* TLViewController.xib */; };
 		C974616816F11D2C00C2C633 /* MTZTiltShadowView.m in Sources */ = {isa = PBXBuildFile; fileRef = C974616716F11D2C00C2C633 /* MTZTiltShadowView.m */; };
+		C974616D16F11F5A00C2C633 /* TLViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C974616C16F11F5A00C2C633 /* TLViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,8 +32,6 @@
 		5E9C08CE16E63BE70072CCC7 /* TLTiltHighlightView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TLTiltHighlightView.m; sourceTree = SOURCE_ROOT; };
 		5E9C08D016E63CFC0072CCC7 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		5E9C08D216E640060072CCC7 /* CoreMotion.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMotion.framework; path = System/Library/Frameworks/CoreMotion.framework; sourceTree = SDKROOT; };
-		5E9C08D916E65E3F0072CCC7 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = InfoPlist.strings; sourceTree = "<group>"; };
-		5E9C08DB16E65E3F0072CCC7 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = TLViewController.xib; sourceTree = "<group>"; };
 		5E9C08DC16E65E3F0072CCC7 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = main.m; path = "TLTiltHighlightView Test/main.m"; sourceTree = SOURCE_ROOT; };
 		5E9C08DD16E65E3F0072CCC7 /* TLAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = TLAppDelegate.h; path = "TLTiltHighlightView Test/TLAppDelegate.h"; sourceTree = SOURCE_ROOT; };
 		5E9C08DE16E65E3F0072CCC7 /* TLAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = TLAppDelegate.m; path = "TLTiltHighlightView Test/TLAppDelegate.m"; sourceTree = SOURCE_ROOT; };
@@ -46,6 +44,7 @@
 		5EBEFCE216E6A86800C19486 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = SOURCE_ROOT; };
 		C974616616F11D2C00C2C633 /* MTZTiltShadowView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTZTiltShadowView.h; sourceTree = SOURCE_ROOT; };
 		C974616716F11D2C00C2C633 /* MTZTiltShadowView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTZTiltShadowView.m; sourceTree = SOURCE_ROOT; };
+		C974616C16F11F5A00C2C633 /* TLViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = TLViewController.xib; path = "TLTiltHighlightView Test/TLViewController.xib"; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,11 +95,11 @@
 		5E9C08B016E63B440072CCC7 /* TLTiltHighlightView */ = {
 			isa = PBXGroup;
 			children = (
-				5E9C08D716E65E3E0072CCC7 /* en.lproj */,
 				5E9C08DD16E65E3F0072CCC7 /* TLAppDelegate.h */,
 				5E9C08DE16E65E3F0072CCC7 /* TLAppDelegate.m */,
 				5E9C08E116E65E3F0072CCC7 /* TLViewController.h */,
 				5E9C08E216E65E3F0072CCC7 /* TLViewController.m */,
+				C974616C16F11F5A00C2C633 /* TLViewController.xib */,
 				5E9C08CD16E63BE70072CCC7 /* TLTiltHighlightView.h */,
 				5E9C08CE16E63BE70072CCC7 /* TLTiltHighlightView.m */,
 				C974616616F11D2C00C2C633 /* MTZTiltShadowView.h */,
@@ -122,16 +121,6 @@
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
-		};
-		5E9C08D716E65E3E0072CCC7 /* en.lproj */ = {
-			isa = PBXGroup;
-			children = (
-				5E9C08D816E65E3F0072CCC7 /* InfoPlist.strings */,
-				5E9C08DA16E65E3F0072CCC7 /* TLViewController.xib */,
-			);
-			name = en.lproj;
-			path = "TLTiltHighlightView Test/en.lproj";
-			sourceTree = SOURCE_ROOT;
 		};
 /* End PBXGroup section */
 
@@ -185,10 +174,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5EBEFCE816E6A95F00C19486 /* TLViewController.xib in Resources */,
 				5EBEFCE316E6A86800C19486 /* Default-568h@2x.png in Resources */,
 				5EBEFCE416E6A86800C19486 /* Default.png in Resources */,
 				5EBEFCE516E6A86800C19486 /* Default@2x.png in Resources */,
+				C974616D16F11F5A00C2C633 /* TLViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -208,25 +197,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXVariantGroup section */
-		5E9C08D816E65E3F0072CCC7 /* InfoPlist.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				5E9C08D916E65E3F0072CCC7 /* en */,
-			);
-			name = InfoPlist.strings;
-			sourceTree = "<group>";
-		};
-		5E9C08DA16E65E3F0072CCC7 /* TLViewController.xib */ = {
-			isa = PBXVariantGroup;
-			children = (
-				5E9C08DB16E65E3F0072CCC7 /* en */,
-			);
-			name = TLViewController.xib;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		5E9C08C816E63B440072CCC7 /* Debug */ = {
