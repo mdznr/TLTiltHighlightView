@@ -20,6 +20,7 @@
 		5EBEFCE616E6A90500C19486 /* TLTiltHighlightView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E9C08CE16E63BE70072CCC7 /* TLTiltHighlightView.m */; };
 		5EBEFCE716E6A94200C19486 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E9C08DC16E65E3F0072CCC7 /* main.m */; };
 		5EBEFCE816E6A95F00C19486 /* TLViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5E9C08DA16E65E3F0072CCC7 /* TLViewController.xib */; };
+		C974616816F11D2C00C2C633 /* MTZTiltShadowView.m in Sources */ = {isa = PBXBuildFile; fileRef = C974616716F11D2C00C2C633 /* MTZTiltShadowView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -43,6 +44,8 @@
 		5EBEFCE016E6A86800C19486 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = SOURCE_ROOT; };
 		5EBEFCE116E6A86800C19486 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = SOURCE_ROOT; };
 		5EBEFCE216E6A86800C19486 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = SOURCE_ROOT; };
+		C974616616F11D2C00C2C633 /* MTZTiltShadowView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTZTiltShadowView.h; sourceTree = SOURCE_ROOT; };
+		C974616716F11D2C00C2C633 /* MTZTiltShadowView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTZTiltShadowView.m; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -100,6 +103,8 @@
 				5E9C08E216E65E3F0072CCC7 /* TLViewController.m */,
 				5E9C08CD16E63BE70072CCC7 /* TLTiltHighlightView.h */,
 				5E9C08CE16E63BE70072CCC7 /* TLTiltHighlightView.m */,
+				C974616616F11D2C00C2C633 /* MTZTiltShadowView.h */,
+				C974616716F11D2C00C2C633 /* MTZTiltShadowView.m */,
 				5E9C08B116E63B440072CCC7 /* Supporting Files */,
 			);
 			path = TLTiltHighlightView;
@@ -198,6 +203,7 @@
 				5EBEFCE616E6A90500C19486 /* TLTiltHighlightView.m in Sources */,
 				5EBEFCDF16E6A84400C19486 /* TLAppDelegate.m in Sources */,
 				5EBEFCDE16E6A84200C19486 /* TLViewController.m in Sources */,
+				C974616816F11D2C00C2C633 /* MTZTiltShadowView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -248,7 +254,7 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 			};
@@ -272,7 +278,7 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
@@ -285,6 +291,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "TLTiltHighlightView Test/TLTiltHighlightView-Test-Prefix.pch";
 				INFOPLIST_FILE = "$(SRCROOT)/TLTiltHighlightView Test/TLTiltHighlightView-Test-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				PRODUCT_NAME = TLTiltHighlightView_Test;
 				WRAPPER_EXTENSION = app;
 			};
@@ -296,6 +303,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "TLTiltHighlightView Test/TLTiltHighlightView-Test-Prefix.pch";
 				INFOPLIST_FILE = "$(SRCROOT)/TLTiltHighlightView Test/TLTiltHighlightView-Test-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				PRODUCT_NAME = TLTiltHighlightView_Test;
 				WRAPPER_EXTENSION = app;
 			};
