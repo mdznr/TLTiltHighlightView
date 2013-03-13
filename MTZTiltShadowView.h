@@ -18,4 +18,7 @@
 /// The highlight colour used in our gradient. (Black by default)
 @property (nonatomic, strong) UIColor *shadowColor;
 
+@property (nonatomic) CGFloat maxShadowDistance;
+@property (nonatomic) CGFloat maxBlurRadius;
+
 @end

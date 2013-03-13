@@ -17,6 +17,7 @@
 
 // Our gradient layer.
 @property (nonatomic, strong) CAGradientLayer *gradientLayer;
+
 // Our motion manager.
 @property (nonatomic, strong) CMMotionManager *motionManager;
 
@@ -57,8 +58,13 @@
 // Sets up the initial state of the view.
 - (void)setup
 {
+	// Some defaults that look nice
+	if ( !self.maxShadowDistance ) self.maxShadowDistance = 1.25f;
+	if ( !self.maxBlurRadius ) self.maxBlurRadius = 0.75;
+	
 	// Set up the shadow
 	[self setupShadow];
+	
     // Set up our motion updates
     [self setupMotionDetection];
 }
@@ -124,10 +130,10 @@
             break;
     }
 	
-	const CGFloat distance = 1.25f;
+	const CGFloat distance = self.maxShadowDistance;
 	[self.layer setShadowOffset:CGSizeMake( (x*distance), (y*distance) )];
 	
-	const CGFloat blur = 0.75f;
+	const CGFloat blur = self.maxBlurRadius;
 	double triangle = sqrt( (x*x) + (y*y) );
 	[self.layer setShadowRadius:triangle * blur];
 }
