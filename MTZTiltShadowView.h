@@ -16,7 +16,7 @@
 /// The colour of the shadow. (Black by default)
 @property (nonatomic, strong) UIColor *shadowColor;
 
-@property (nonatomic) CGFloat maxShadowDistance;
-@property (nonatomic) CGFloat maxBlurRadius;
+@property (nonatomic, assign) CGFloat maxShadowDistance;
+@property (nonatomic, assign) CGFloat maxBlurRadius;
 
 @end

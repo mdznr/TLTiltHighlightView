@@ -22,6 +22,8 @@
 
 @implementation MTZTiltShadowView
 
+@synthesize shadowColor = _shadowColor;
+
 #pragma mark - Public Initializers
 
 // Allows support for using instances loaded from nibs or storyboards.
@@ -54,31 +56,19 @@
 
 // Sets up the initial state of the view.
 - (void)setup
-{	
+{
 	// Some defaults that look nice
-	if ( !self.maxShadowDistance ) {
-		self.maxShadowDistance = 1.0f;
-	}
-	if ( !self.maxBlurRadius ) {
-		self.maxBlurRadius = 0.25f;
-	}
-	if ( !self.shadowColor ) {
-		self.shadowColor = [UIColor colorWithWhite:1.0f alpha:0.25f];
-	}
+	self.maxShadowDistance = 1.25f;
+	self.maxBlurRadius = 0.5f;
+	_shadowColor = [UIColor colorWithWhite:0.0f alpha:0.33f];
+}
+
+- (void)awakeFromNib
+{
+	[super awakeFromNib];
 	
-    // make new layer to contain shadow and masked image
-    CALayer *containerLayer = [CALayer layer];
-    // use the image's layer to mask the image
-	UIImage *_maskingImage = self.imageView.image;
-	CALayer *_maskingLayer = [CALayer layer];
-	_maskingLayer.frame = self.bounds;
-	[_maskingLayer setContents:(id)[_maskingImage CGImage]];
-	[self.imageView.layer setMask:_maskingLayer];
-    self.imageView.layer.masksToBounds = YES;
-    // add masked image layer into container layer so that it's shadowed
-    [containerLayer addSublayer:self.imageView.layer];
-    // add container including masked image and shadow into view
-    [self.layer addSublayer:containerLayer];
+	// Set up the mask
+	[self setupMask];
 	
 	// Set up the shadow
 	[self setupShadow];
@@ -87,11 +77,25 @@
     [self setupMotionDetection];
 }
 
+- (void)setupMask
+{
+	UIImage *_maskingImage = self.imageView.image;
+	CALayer *_maskingLayer = [CALayer layer];
+	_maskingLayer.frame = self.bounds;
+	[_maskingLayer setContents:(id)[_maskingImage CGImage]];
+	[self.imageView.layer setMask:_maskingLayer];
+    self.imageView.layer.masksToBounds = YES;
+	
+    CALayer *containerLayer = [CALayer layer];
+    [containerLayer addSublayer:self.imageView.layer];
+    [self.layer addSublayer:containerLayer];
+}
+
 // Creates the shadow and sets up some default properties
 - (void)setupShadow
 {
 	[self setClipsToBounds:NO];
-	[self.layer setShadowColor:[self.shadowColor CGColor]];
+	[self.layer setShadowColor:[_shadowColor CGColor]];
 	[self.layer setShadowOffset:CGSizeMake(0, 0)];
 	[self.layer setShadowRadius:1.0f];
 	[self.layer setShadowOpacity:1.0f];
