@@ -54,10 +54,31 @@
 
 // Sets up the initial state of the view.
 - (void)setup
-{
+{	
 	// Some defaults that look nice
-	if ( !self.maxShadowDistance ) self.maxShadowDistance = 1.25f;
-	if ( !self.maxBlurRadius ) self.maxBlurRadius = 0.75;
+	if ( !self.maxShadowDistance ) {
+		self.maxShadowDistance = 1.0f;
+	}
+	if ( !self.maxBlurRadius ) {
+		self.maxBlurRadius = 0.25f;
+	}
+	if ( !self.shadowColor ) {
+		self.shadowColor = [UIColor colorWithWhite:1.0f alpha:0.25f];
+	}
+	
+    // make new layer to contain shadow and masked image
+    CALayer *containerLayer = [CALayer layer];
+    // use the image's layer to mask the image
+	UIImage *_maskingImage = self.imageView.image;
+	CALayer *_maskingLayer = [CALayer layer];
+	_maskingLayer.frame = self.bounds;
+	[_maskingLayer setContents:(id)[_maskingImage CGImage]];
+	[self.imageView.layer setMask:_maskingLayer];
+    self.imageView.layer.masksToBounds = YES;
+    // add masked image layer into container layer so that it's shadowed
+    [containerLayer addSublayer:self.imageView.layer];
+    // add container including masked image and shadow into view
+    [self.layer addSublayer:containerLayer];
 	
 	// Set up the shadow
 	[self setupShadow];
@@ -69,14 +90,14 @@
 // Creates the shadow and sets up some default properties
 - (void)setupShadow
 {
-	self.backgroundColor = [UIColor colorWithWhite:1.0f alpha:1.0f];
-	self.shadowColor = [UIColor colorWithWhite:0.0f alpha:0.33f];
-	
 	[self setClipsToBounds:NO];
 	[self.layer setShadowColor:[self.shadowColor CGColor]];
 	[self.layer setShadowOffset:CGSizeMake(0, 0)];
 	[self.layer setShadowRadius:1.0f];
 	[self.layer setShadowOpacity:1.0f];
+	
+//	[self.layer setShadowPath:[[UIBezierPath bezierPathWithRect:self.bounds] CGPath]];
+//	bezierPathWithRoundedRect:cornerRadius:
 }
 
 // Starts the 

@@ -21,6 +21,12 @@
 		5EBEFCE716E6A94200C19486 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E9C08DC16E65E3F0072CCC7 /* main.m */; };
 		C974616816F11D2C00C2C633 /* MTZTiltShadowView.m in Sources */ = {isa = PBXBuildFile; fileRef = C974616716F11D2C00C2C633 /* MTZTiltShadowView.m */; };
 		C974616D16F11F5A00C2C633 /* TLViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C974616C16F11F5A00C2C633 /* TLViewController.xib */; };
+		C9764F6516F1729A00552CC9 /* PlayButton.png in Resources */ = {isa = PBXBuildFile; fileRef = C9764F6116F1729A00552CC9 /* PlayButton.png */; };
+		C9764F6616F1729A00552CC9 /* PlayButton@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C9764F6216F1729A00552CC9 /* PlayButton@2x.png */; };
+		C9764F6B16F17A0000552CC9 /* FastForwardButton.png in Resources */ = {isa = PBXBuildFile; fileRef = C9764F6716F17A0000552CC9 /* FastForwardButton.png */; };
+		C9764F6C16F17A0000552CC9 /* FastForwardButton@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C9764F6816F17A0000552CC9 /* FastForwardButton@2x.png */; };
+		C9764F6D16F17A0000552CC9 /* RewindButton.png in Resources */ = {isa = PBXBuildFile; fileRef = C9764F6916F17A0000552CC9 /* RewindButton.png */; };
+		C9764F6E16F17A0000552CC9 /* RewindButton@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C9764F6A16F17A0000552CC9 /* RewindButton@2x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -45,6 +51,12 @@
 		C974616616F11D2C00C2C633 /* MTZTiltShadowView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTZTiltShadowView.h; sourceTree = SOURCE_ROOT; };
 		C974616716F11D2C00C2C633 /* MTZTiltShadowView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTZTiltShadowView.m; sourceTree = SOURCE_ROOT; };
 		C974616C16F11F5A00C2C633 /* TLViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = TLViewController.xib; path = "TLTiltHighlightView Test/TLViewController.xib"; sourceTree = SOURCE_ROOT; };
+		C9764F6116F1729A00552CC9 /* PlayButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = PlayButton.png; path = "TLTiltHighlightView Test/PlayButton.png"; sourceTree = SOURCE_ROOT; };
+		C9764F6216F1729A00552CC9 /* PlayButton@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "PlayButton@2x.png"; path = "TLTiltHighlightView Test/PlayButton@2x.png"; sourceTree = SOURCE_ROOT; };
+		C9764F6716F17A0000552CC9 /* FastForwardButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = FastForwardButton.png; path = "TLTiltHighlightView Test/FastForwardButton.png"; sourceTree = SOURCE_ROOT; };
+		C9764F6816F17A0000552CC9 /* FastForwardButton@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "FastForwardButton@2x.png"; path = "TLTiltHighlightView Test/FastForwardButton@2x.png"; sourceTree = SOURCE_ROOT; };
+		C9764F6916F17A0000552CC9 /* RewindButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = RewindButton.png; path = "TLTiltHighlightView Test/RewindButton.png"; sourceTree = SOURCE_ROOT; };
+		C9764F6A16F17A0000552CC9 /* RewindButton@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "RewindButton@2x.png"; path = "TLTiltHighlightView Test/RewindButton@2x.png"; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -104,6 +116,12 @@
 				5E9C08CE16E63BE70072CCC7 /* TLTiltHighlightView.m */,
 				C974616616F11D2C00C2C633 /* MTZTiltShadowView.h */,
 				C974616716F11D2C00C2C633 /* MTZTiltShadowView.m */,
+				C9764F6716F17A0000552CC9 /* FastForwardButton.png */,
+				C9764F6816F17A0000552CC9 /* FastForwardButton@2x.png */,
+				C9764F6116F1729A00552CC9 /* PlayButton.png */,
+				C9764F6216F1729A00552CC9 /* PlayButton@2x.png */,
+				C9764F6916F17A0000552CC9 /* RewindButton.png */,
+				C9764F6A16F17A0000552CC9 /* RewindButton@2x.png */,
 				5E9C08B116E63B440072CCC7 /* Supporting Files */,
 			);
 			path = TLTiltHighlightView;
@@ -178,6 +196,12 @@
 				5EBEFCE416E6A86800C19486 /* Default.png in Resources */,
 				5EBEFCE516E6A86800C19486 /* Default@2x.png in Resources */,
 				C974616D16F11F5A00C2C633 /* TLViewController.xib in Resources */,
+				C9764F6516F1729A00552CC9 /* PlayButton.png in Resources */,
+				C9764F6616F1729A00552CC9 /* PlayButton@2x.png in Resources */,
+				C9764F6B16F17A0000552CC9 /* FastForwardButton.png in Resources */,
+				C9764F6C16F17A0000552CC9 /* FastForwardButton@2x.png in Resources */,
+				C9764F6D16F17A0000552CC9 /* RewindButton.png in Resources */,
+				C9764F6E16F17A0000552CC9 /* RewindButton@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

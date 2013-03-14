@@ -9,13 +9,11 @@
 
 #import <UIKit/UIKit.h>
 
-/// Provides a view with a shadow whose position updates to the current
+/// Provides a button with a shadow whose position updates to the current
 /// positional attitude of the device.
-///
-/// The default background colour of this view is opaque white.
-@interface MTZTiltShadowView : UIView
+@interface MTZTiltShadowView : UIButton
 
-/// The highlight colour used in our gradient. (Black by default)
+/// The colour of the shadow. (Black by default)
 @property (nonatomic, strong) UIColor *shadowColor;
 
 @property (nonatomic) CGFloat maxShadowDistance;
