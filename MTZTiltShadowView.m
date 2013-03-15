@@ -12,16 +12,11 @@
 
 #import "MTZTiltShadowView.h"
 
-#define LOWEST_FPS_ALLOWED 3
-
 // Private properties.
 @interface MTZTiltShadowView ()
 
 // Our motion manager.
 @property (nonatomic, strong) CMMotionManager *motionManager;
-
-// Last time checked accelerometer
-@property (nonatomic, strong) NSDate *lastTimeCheckedAccelerometer;
 
 @end
 
@@ -161,46 +156,8 @@
 	double triangle = sqrt( (x*x) + (y*y) );
 	CGFloat shadowRadius = triangle * blur;
 	
-	// Find the current time
-	NSDate *now = [NSDate date];
-	
-	// Get the time difference (in seconds)
-	NSTimeInterval timeDifference = [now timeIntervalSinceDate:_lastTimeCheckedAccelerometer];
-	
-	// Update lastTimeCheckedAccelerometer to current time
-	_lastTimeCheckedAccelerometer = now;
-
-	double lowestFrameRate = 1 / LOWEST_FPS_ALLOWED;
-	
-	// If the time difference is greater than the desiredFPS
-	if ( timeDifference > lowestFrameRate ) {
-		CABasicAnimation *moveHeight = [CABasicAnimation animationWithKeyPath:@"shadowOffset.height"];
-		[moveHeight setFromValue:[NSNumber numberWithFloat:self.layer.shadowOffset.height]];
-		[moveHeight setToValue:[NSNumber numberWithFloat:shadowOffset.height]];
-		[moveHeight setDuration:lowestFrameRate];
-		moveHeight.autoreverses = YES;
-		
-		CABasicAnimation *moveWidth  = [CABasicAnimation animationWithKeyPath:@"shadowOffset.width"];
-		[moveWidth setFromValue:[NSNumber numberWithFloat:self.layer.shadowOffset.width]];
-		[moveWidth setToValue:[NSNumber numberWithFloat:shadowOffset.width]];
-		[moveWidth setDuration:lowestFrameRate];
-		moveWidth.autoreverses = YES;
-		
-		CABasicAnimation *shadowUpdate = [CABasicAnimation animationWithKeyPath:@"shadowRadius" ];
-		shadowUpdate.delegate = self;
-		[shadowUpdate setFromValue:[NSNumber numberWithFloat:self.layer.shadowRadius]];
-		[shadowUpdate setToValue:[NSNumber numberWithFloat:shadowRadius]];
-		[shadowUpdate setDuration:lowestFrameRate];
-		shadowUpdate.autoreverses = YES;
-		
-		// Add animation to a specific element's layer. Must be called after the element is displayed.
-		[self.layer addAnimation:shadowUpdate forKey:@"shadowRadius"];
-		[self.layer addAnimation:moveHeight forKey:@"shadowOffset.height"];
-		[self.layer addAnimation:moveWidth forKey:@"shadowOffset.width"];
-	} else {
-		[self.layer setShadowOffset:shadowOffset];
-		[self.layer setShadowRadius:shadowRadius];
-	}
+	[self.layer setShadowOffset:shadowOffset];
+	[self.layer setShadowRadius:shadowRadius];
 }
 
 @end
