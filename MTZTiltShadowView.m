@@ -52,6 +52,12 @@
     [self.motionManager stopAccelerometerUpdates];
 }
 
+- (void)awakeFromNib
+{
+	[super awakeFromNib];
+	[self.layer setShadowColor:[_shadowColor CGColor]];
+}
+
 #pragma mark - Private methods
 
 // Sets up the initial state of the view.
@@ -61,11 +67,6 @@
 	self.maxShadowDistance = 1.25f;
 	self.maxBlurRadius = 0.5f;
 	_shadowColor = [UIColor colorWithWhite:0.0f alpha:0.33f];
-}
-
-- (void)awakeFromNib
-{
-	[super awakeFromNib];
 	
 	// Set up the mask
 	[self setupMask];

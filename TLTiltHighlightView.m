@@ -129,7 +129,7 @@
     
     // We need to account for the interface's orientation when calculating the relative roll. 
     CGFloat roll = 0.0f;
-    switch ([[UIApplication sharedApplication] statusBarOrientation]) {
+    switch ( [[UIApplication sharedApplication] statusBarOrientation] ) {
         case UIInterfaceOrientationPortrait:
             roll = deviceMotion.attitude.roll;
             break;
