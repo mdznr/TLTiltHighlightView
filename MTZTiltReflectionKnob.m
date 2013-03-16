@@ -76,9 +76,9 @@
 - (void)setup
 {
     // Drawing code
-	_shineX = [UIImage imageNamed:@"SliderKnobShine"];
-	_shineY = [UIImage imageNamed:@"SliderKnobShine"];
 	_base   = [UIImage imageNamed:@"SliderKnobBase"];
+	_shineX = [UIImage imageNamed:@"SliderKnobShine"];
+	_shineY = [UIImage imageNamed:@"SliderKnobShineOverlay"];
 	
     // Set up our motion updates
     [self setupMotionDetection];
@@ -163,20 +163,23 @@
 	CGFloat x = -_xMotion * M_PI_4;
 	CGFloat y =  _yMotion * M_PI_2;
 	
-	UIImage *shineX = [_shineX squareImageRotatedByRadians:(M_PI_4 + y+x)];
+//	UIImage *base = [_base squareImageRotatedByRadians:(x)];
+	UIImage *shineX = [_shineX squareImageRotatedByRadians:(M_PI_4 +  y+x)];
 	UIImage *shineY = [_shineY squareImageRotatedByRadians:(M_PI_4 + -y+x)];
 	
-//	UIImage *shineX = [UIImage imageWithCIImage:[_shineX.CIImage imageByApplyingTransform:CGAffineTransformMakeRotation(M_PI_4 +  y+x)]];
-//	UIImage *shineY = [UIImage imageWithCIImage:[_shineY.CIImage imageByApplyingTransform:CGAffineTransformMakeRotation(M_PI_4 + -y+x)]];
-	
-//	base = [base squareImageRotatedByRadians:(x)];
+//	[base drawInRect:rect];
 	[_base drawInRect:rect];
 	
-//	[shineX drawInRect:rect];
-	[shineX drawInRect:rect blendMode:kCGBlendModeOverlay alpha:1.0f];
+	CGRect innerRect = CGRectMake(rect.origin.x + 1,
+								  rect.origin.y + 1,
+								  rect.size.width - 2,
+								  rect.size.height - 2);
 	
-//	[shineY drawInRect:rect];
-	[shineY drawInRect:rect blendMode:kCGBlendModeOverlay alpha:1.0f];
+	[shineX drawInRect:innerRect];
+//	[shineX drawInRect:innerRect blendMode:kCGBlendModeOverlay alpha:1.0f];
+	
+//	[shineY drawInRect:innerRect];
+	[shineY drawInRect:innerRect blendMode:kCGBlendModeOverlay alpha:1.0f];
 	
 	NSLog(@"drawRect duration: %f", [now timeIntervalSinceNow]);
 }
