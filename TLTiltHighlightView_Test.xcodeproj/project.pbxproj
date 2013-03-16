@@ -23,7 +23,6 @@
 		C92B52C116F3E3F300BDAB5D /* MTZTiltReflectionKnob.m in Sources */ = {isa = PBXBuildFile; fileRef = C92B52C016F3E3F200BDAB5D /* MTZTiltReflectionKnob.m */; };
 		C92B52C416F3FBF400BDAB5D /* UIImage+Rotate.m in Sources */ = {isa = PBXBuildFile; fileRef = C92B52C316F3FBF400BDAB5D /* UIImage+Rotate.m */; };
 		C92B52D116F4317300BDAB5D /* SliderKnobShine.png in Resources */ = {isa = PBXBuildFile; fileRef = C92B52D016F4317300BDAB5D /* SliderKnobShine.png */; };
-		C92B52D316F4510A00BDAB5D /* SliderKnobShineOverlay.png in Resources */ = {isa = PBXBuildFile; fileRef = C92B52D216F4510A00BDAB5D /* SliderKnobShineOverlay.png */; };
 		C974616816F11D2C00C2C633 /* MTZTiltShadowView.m in Sources */ = {isa = PBXBuildFile; fileRef = C974616716F11D2C00C2C633 /* MTZTiltShadowView.m */; };
 		C974616D16F11F5A00C2C633 /* TLViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C974616C16F11F5A00C2C633 /* TLViewController.xib */; };
 		C9764F6516F1729A00552CC9 /* PlayButton.png in Resources */ = {isa = PBXBuildFile; fileRef = C9764F6116F1729A00552CC9 /* PlayButton.png */; };
@@ -59,7 +58,6 @@
 		C92B52C216F3FBF400BDAB5D /* UIImage+Rotate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Rotate.h"; sourceTree = SOURCE_ROOT; };
 		C92B52C316F3FBF400BDAB5D /* UIImage+Rotate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Rotate.m"; sourceTree = SOURCE_ROOT; };
 		C92B52D016F4317300BDAB5D /* SliderKnobShine.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = SliderKnobShine.png; sourceTree = SOURCE_ROOT; };
-		C92B52D216F4510A00BDAB5D /* SliderKnobShineOverlay.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = SliderKnobShineOverlay.png; sourceTree = SOURCE_ROOT; };
 		C974616616F11D2C00C2C633 /* MTZTiltShadowView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTZTiltShadowView.h; sourceTree = SOURCE_ROOT; };
 		C974616716F11D2C00C2C633 /* MTZTiltShadowView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTZTiltShadowView.m; sourceTree = SOURCE_ROOT; };
 		C974616C16F11F5A00C2C633 /* TLViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = TLViewController.xib; path = "TLTiltHighlightView Test/TLViewController.xib"; sourceTree = SOURCE_ROOT; };
@@ -140,7 +138,6 @@
 				C9764F6A16F17A0000552CC9 /* RewindButton@2x.png */,
 				C92B52B816F3E33600BDAB5D /* SliderKnobBase.png */,
 				C92B52D016F4317300BDAB5D /* SliderKnobShine.png */,
-				C92B52D216F4510A00BDAB5D /* SliderKnobShineOverlay.png */,
 				5E9C08B116E63B440072CCC7 /* Supporting Files */,
 			);
 			path = TLTiltHighlightView;
@@ -223,7 +220,6 @@
 				C9764F6E16F17A0000552CC9 /* RewindButton@2x.png in Resources */,
 				C92B52BA16F3E33700BDAB5D /* SliderKnobBase.png in Resources */,
 				C92B52D116F4317300BDAB5D /* SliderKnobShine.png in Resources */,
-				C92B52D316F4510A00BDAB5D /* SliderKnobShineOverlay.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
