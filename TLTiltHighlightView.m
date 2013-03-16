@@ -90,6 +90,7 @@
     
     // Set up a motion manager and start motion updates, calling deviceMotionDidUpdate: when updated.
     self.motionManager = [[CMMotionManager alloc] init];
+	self.motionManager.deviceMotionUpdateInterval = 1.0/60.0;
     
     __weak __typeof(self) weakSelf = self;
     [self.motionManager startDeviceMotionUpdatesToQueue:[NSOperationQueue mainQueue] withHandler:^(CMDeviceMotion *motion, NSError *error) {
