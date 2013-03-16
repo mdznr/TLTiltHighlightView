@@ -20,9 +20,9 @@
 		5EBEFCE616E6A90500C19486 /* TLTiltHighlightView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E9C08CE16E63BE70072CCC7 /* TLTiltHighlightView.m */; };
 		5EBEFCE716E6A94200C19486 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E9C08DC16E65E3F0072CCC7 /* main.m */; };
 		C92B52BA16F3E33700BDAB5D /* SliderKnobBase.png in Resources */ = {isa = PBXBuildFile; fileRef = C92B52B816F3E33600BDAB5D /* SliderKnobBase.png */; };
-		C92B52BB16F3E33700BDAB5D /* SliderKnobShine.png in Resources */ = {isa = PBXBuildFile; fileRef = C92B52B916F3E33700BDAB5D /* SliderKnobShine.png */; };
 		C92B52C116F3E3F300BDAB5D /* MTZTiltReflectionKnob.m in Sources */ = {isa = PBXBuildFile; fileRef = C92B52C016F3E3F200BDAB5D /* MTZTiltReflectionKnob.m */; };
-		C92B52C416F3FBF400BDAB5D /* UIImage+Extensions.m in Sources */ = {isa = PBXBuildFile; fileRef = C92B52C316F3FBF400BDAB5D /* UIImage+Extensions.m */; };
+		C92B52C416F3FBF400BDAB5D /* UIImage+Rotate.m in Sources */ = {isa = PBXBuildFile; fileRef = C92B52C316F3FBF400BDAB5D /* UIImage+Rotate.m */; };
+		C92B52D116F4317300BDAB5D /* SliderKnobShine.png in Resources */ = {isa = PBXBuildFile; fileRef = C92B52D016F4317300BDAB5D /* SliderKnobShine.png */; };
 		C974616816F11D2C00C2C633 /* MTZTiltShadowView.m in Sources */ = {isa = PBXBuildFile; fileRef = C974616716F11D2C00C2C633 /* MTZTiltShadowView.m */; };
 		C974616D16F11F5A00C2C633 /* TLViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C974616C16F11F5A00C2C633 /* TLViewController.xib */; };
 		C9764F6516F1729A00552CC9 /* PlayButton.png in Resources */ = {isa = PBXBuildFile; fileRef = C9764F6116F1729A00552CC9 /* PlayButton.png */; };
@@ -53,11 +53,11 @@
 		5EBEFCE116E6A86800C19486 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = SOURCE_ROOT; };
 		5EBEFCE216E6A86800C19486 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = SOURCE_ROOT; };
 		C92B52B816F3E33600BDAB5D /* SliderKnobBase.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = SliderKnobBase.png; sourceTree = SOURCE_ROOT; };
-		C92B52B916F3E33700BDAB5D /* SliderKnobShine.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = SliderKnobShine.png; sourceTree = SOURCE_ROOT; };
 		C92B52BF16F3E3F200BDAB5D /* MTZTiltReflectionKnob.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTZTiltReflectionKnob.h; sourceTree = SOURCE_ROOT; };
 		C92B52C016F3E3F200BDAB5D /* MTZTiltReflectionKnob.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTZTiltReflectionKnob.m; sourceTree = SOURCE_ROOT; };
-		C92B52C216F3FBF400BDAB5D /* UIImage+Extensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Extensions.h"; sourceTree = SOURCE_ROOT; };
-		C92B52C316F3FBF400BDAB5D /* UIImage+Extensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Extensions.m"; sourceTree = SOURCE_ROOT; };
+		C92B52C216F3FBF400BDAB5D /* UIImage+Rotate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Rotate.h"; sourceTree = SOURCE_ROOT; };
+		C92B52C316F3FBF400BDAB5D /* UIImage+Rotate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Rotate.m"; sourceTree = SOURCE_ROOT; };
+		C92B52D016F4317300BDAB5D /* SliderKnobShine.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = SliderKnobShine.png; sourceTree = SOURCE_ROOT; };
 		C974616616F11D2C00C2C633 /* MTZTiltShadowView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTZTiltShadowView.h; sourceTree = SOURCE_ROOT; };
 		C974616716F11D2C00C2C633 /* MTZTiltShadowView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTZTiltShadowView.m; sourceTree = SOURCE_ROOT; };
 		C974616C16F11F5A00C2C633 /* TLViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = TLViewController.xib; path = "TLTiltHighlightView Test/TLViewController.xib"; sourceTree = SOURCE_ROOT; };
@@ -128,8 +128,8 @@
 				C974616716F11D2C00C2C633 /* MTZTiltShadowView.m */,
 				C92B52BF16F3E3F200BDAB5D /* MTZTiltReflectionKnob.h */,
 				C92B52C016F3E3F200BDAB5D /* MTZTiltReflectionKnob.m */,
-				C92B52C216F3FBF400BDAB5D /* UIImage+Extensions.h */,
-				C92B52C316F3FBF400BDAB5D /* UIImage+Extensions.m */,
+				C92B52C216F3FBF400BDAB5D /* UIImage+Rotate.h */,
+				C92B52C316F3FBF400BDAB5D /* UIImage+Rotate.m */,
 				C9764F6716F17A0000552CC9 /* FastForwardButton.png */,
 				C9764F6816F17A0000552CC9 /* FastForwardButton@2x.png */,
 				C9764F6116F1729A00552CC9 /* PlayButton.png */,
@@ -137,7 +137,7 @@
 				C9764F6916F17A0000552CC9 /* RewindButton.png */,
 				C9764F6A16F17A0000552CC9 /* RewindButton@2x.png */,
 				C92B52B816F3E33600BDAB5D /* SliderKnobBase.png */,
-				C92B52B916F3E33700BDAB5D /* SliderKnobShine.png */,
+				C92B52D016F4317300BDAB5D /* SliderKnobShine.png */,
 				5E9C08B116E63B440072CCC7 /* Supporting Files */,
 			);
 			path = TLTiltHighlightView;
@@ -219,7 +219,7 @@
 				C9764F6D16F17A0000552CC9 /* RewindButton.png in Resources */,
 				C9764F6E16F17A0000552CC9 /* RewindButton@2x.png in Resources */,
 				C92B52BA16F3E33700BDAB5D /* SliderKnobBase.png in Resources */,
-				C92B52BB16F3E33700BDAB5D /* SliderKnobShine.png in Resources */,
+				C92B52D116F4317300BDAB5D /* SliderKnobShine.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -236,7 +236,7 @@
 				5EBEFCDE16E6A84200C19486 /* TLViewController.m in Sources */,
 				C974616816F11D2C00C2C633 /* MTZTiltShadowView.m in Sources */,
 				C92B52C116F3E3F300BDAB5D /* MTZTiltReflectionKnob.m in Sources */,
-				C92B52C416F3FBF400BDAB5D /* UIImage+Extensions.m in Sources */,
+				C92B52C416F3FBF400BDAB5D /* UIImage+Rotate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
