@@ -97,19 +97,37 @@
 		NSOperationQueue *queue = [NSOperationQueue currentQueue];
 		[self.motionManager startDeviceMotionUpdatesToQueue:queue
 												withHandler:^ (CMDeviceMotion *motionData, NSError *error) {
-//													CMAttitude *attitude = motionData.attitude;
 													[self deviceMotionDidUpdate:motionData];
 												}];
 	}
+}
+
+- (void)stopMotionDetection
+{
+	if ( self.motionManager ) {
+		[self.motionManager stopDeviceMotionUpdates];
+		self.motionManager = nil;
+	}
+}
+
+- (void)resumeMotionDetection
+{
+	if ( self.motionManager != nil ) {
+		NSLog(@"Motion is already active.");
+		return;
+	}
 	
-	__weak __typeof(self) weakSelf = self;
-    [self.motionManager startDeviceMotionUpdatesToQueue:[NSOperationQueue mainQueue] withHandler:^(CMDeviceMotion *motion, NSError *error) {
-        if ( error ) {
-            [weakSelf.motionManager stopDeviceMotionUpdates];
-            return;
-        }
-        [weakSelf deviceMotionDidUpdate:motion];
-    }];
+	// Set up a motion manager and start motion updates, calling deviceMotionDidUpdate: when updated.
+	self.motionManager = [[CMMotionManager alloc] init];
+	self.motionManager.deviceMotionUpdateInterval = 1.0/60.0;
+	
+	if ( self.motionManager.deviceMotionAvailable ) {
+		NSOperationQueue *queue = [NSOperationQueue currentQueue];
+		[self.motionManager startDeviceMotionUpdatesToQueue:queue
+												withHandler:^ (CMDeviceMotion *motionData, NSError *error) {
+													[self deviceMotionDidUpdate:motionData];
+												}];
+	}
 }
 
 #pragma mark CoreMotion Methods
@@ -158,19 +176,20 @@
 // An empty implementation adversely affects performance during animation.
 - (void)drawRect:(CGRect)rect
 {
-//	NSDate *now = [NSDate date];
+//	NSDate *begin = [NSDate date];
 	
 	CGFloat x = -_xMotion * M_PI_4;
 	CGFloat y =  _yMotion * M_PI_2;
 	
 	UIImage *shineX = [_shineX squareImageRotatedByRadians:(M_PI_4 +  y+x)];
 	UIImage *shineY = [_shineY squareImageRotatedByRadians:(M_PI_4 + -y+x)];
-	
 //	UIImage *shineX = [UIImage imageWithCIImage:[_shineX.CIImage imageByApplyingTransform:CGAffineTransformMakeRotation(M_PI_4 +  y+x)]];
 //	UIImage *shineY = [UIImage imageWithCIImage:[_shineY.CIImage imageByApplyingTransform:CGAffineTransformMakeRotation(M_PI_4 + -y+x)]];
 	
-//	base = [base squareImageRotatedByRadians:(x)];
-	[_base drawInRect:rect];
+//	NSDate *rotate = [NSDate date];
+	
+	[[_base squareImageRotatedByRadians:(x)] drawInRect:rect];
+//	[_base drawInRect:rect];
 	
 //	[shineX drawInRect:rect];
 	[shineX drawInRect:rect blendMode:kCGBlendModeOverlay alpha:(1.0f - x)];
@@ -178,7 +197,7 @@
 //	[shineY drawInRect:rect];
 	[shineY drawInRect:rect blendMode:kCGBlendModeOverlay alpha:(1.0f + x)];
 	
-//	NSLog(@"drawRect duration: %f", [now timeIntervalSinceNow]);
+//	NSLog(@"rotate: %f drawInRect: %f", [begin timeIntervalSinceDate:rotate], [rotate timeIntervalSinceNow]);
 }
 
 @end

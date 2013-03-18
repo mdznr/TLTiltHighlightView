@@ -10,4 +10,7 @@
 
 @interface TLViewController : UIViewController
 
+- (void)becomeInactive;
+- (void)becomeActive;
+
 @end

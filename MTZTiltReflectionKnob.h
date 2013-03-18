@@ -10,4 +10,7 @@
 
 @interface MTZTiltReflectionKnob : UIView
 
+- (void)stopMotionDetection;
+- (void)resumeMotionDetection;
+
 @end

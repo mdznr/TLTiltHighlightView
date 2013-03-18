@@ -9,8 +9,12 @@
 #import "TLViewController.h"
 
 #import "TLTiltHighlightView.h"
+#import "MTZTiltShadowView.h"
+#import "MTZTiltReflectionKnob.h"
 
 @interface TLViewController ()
+
+@property (strong, nonatomic) IBOutlet MTZTiltReflectionKnob *knob;
 
 @end
 
@@ -35,6 +39,16 @@
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (void)becomeInactive
+{
+	[_knob stopMotionDetection];
+}
+
+- (void)becomeActive
+{
+	[_knob resumeMotionDetection];
 }
 
 @end
