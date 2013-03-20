@@ -10,6 +10,8 @@
 
 @interface MTZTiltReflectionKnob : UIView
 
+@property (nonatomic, strong) UIImage *baseImage;
+
 - (void)stopMotionDetection;
 - (void)resumeMotionDetection;
 

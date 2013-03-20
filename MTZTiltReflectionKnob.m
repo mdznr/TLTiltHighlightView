@@ -19,25 +19,17 @@
 // Our motion manager.
 @property (nonatomic, strong) CMMotionManager *motionManager;
 
-@property (nonatomic, strong) UIImage *base;
-@property (nonatomic, strong) UIImage *shineX;
-@property (nonatomic, strong) UIImage *shineY;
-
-@property (nonatomic, strong) UIImage *currentBase;
-@property (nonatomic, strong) UIImage *currentShineX;
-@property (nonatomic, strong) UIImage *currentShineY;
-
 @property CGFloat xMotion;
 @property CGFloat yMotion;
 
 @property double previousRoll;
 @property double previousPitch;
 
-@property (nonatomic, strong) NSDate *drawRectTimeStamp;
-
 @end
 
 @implementation MTZTiltReflectionKnob
+
+@synthesize baseImage = _baseImage;
 
 #pragma mark - Public Initializers
 
@@ -77,9 +69,7 @@
 - (void)setup
 {
     // Drawing code
-	_shineX = [UIImage imageNamed:@"SliderKnobShine"];
-	_shineY = [UIImage imageNamed:@"SliderKnobShine"];
-	_base   = [UIImage imageNamed:@"SliderKnobBase"];
+	_baseImage  = [UIImage imageNamed:@"SliderKnobBase"];
 	
     // Set up our motion updates
     [self setupMotionDetection];
@@ -177,13 +167,13 @@
 	[imageLayer setCornerRadius:rect.size.width/2];
 	[imageLayer setMasksToBounds:YES];
 	
+	// Draw the knob's base
+	[_baseImage drawInRect:rect];
+	
 	// Get the x and y motinos
 	//	x and y vary from -1 to 1
 	CGFloat x = -_xMotion;
 	CGFloat y =  _yMotion;
-	
-	// Rotate the base to get proper lighting on top and bottom
-	[[_base squareImageRotatedByRadians:(x)] drawInRect:rect];
 	
 	// Empty float value to be used in modff
 	float *f = malloc(sizeof(float));
