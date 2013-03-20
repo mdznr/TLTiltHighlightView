@@ -11,6 +11,7 @@
 
 #import "MTZTiltReflectionKnob.h"
 #import "UIImage+Rotate.h"
+#import "GZCoreGraphicsAdditions.h"
 
 // Private properties.
 @interface MTZTiltReflectionKnob ()
@@ -135,15 +136,10 @@
 - (void)deviceMotionDidUpdate:(CMDeviceMotion *)deviceMotion
 {
 	// Don't redraw if the change in motion wasn't enough.
-//	2*pi*24 = 150.79644737
-//	1/ANS = 0.006631455962
-//	ANS/2 = 0.003315727981
 	if ( ABS(deviceMotion.attitude.roll - _previousRoll) < 0.003315727981f ||
 		ABS(deviceMotion.attitude.pitch - _previousPitch) < 0.003315727981f ) {
 		return;
 	}
-	
-//	NSLog(@"roll: %f pitch: %f", deviceMotion.attitude.roll, deviceMotion.attitude.pitch);
 	
 	_previousRoll = deviceMotion.attitude.roll;
 	_previousPitch = deviceMotion.attitude.pitch;
@@ -176,28 +172,47 @@
 // An empty implementation adversely affects performance during animation.
 - (void)drawRect:(CGRect)rect
 {
-//	NSDate *begin = [NSDate date];
+	// Mask it to a circle (radius is half the width)
+	CALayer *imageLayer = self.layer;
+	[imageLayer setCornerRadius:rect.size.width/2];
+	[imageLayer setMasksToBounds:YES];
 	
-	CGFloat x = -_xMotion * M_PI_4;
-	CGFloat y =  _yMotion * M_PI_2;
+	// Get the x and y motinos
+	//	x and y vary from -1 to 1
+	CGFloat x = -_xMotion;
+	CGFloat y =  _yMotion;
 	
-	UIImage *shineX = [_shineX squareImageRotatedByRadians:(M_PI_4 +  y+x)];
-	UIImage *shineY = [_shineY squareImageRotatedByRadians:(M_PI_4 + -y+x)];
-//	UIImage *shineX = [UIImage imageWithCIImage:[_shineX.CIImage imageByApplyingTransform:CGAffineTransformMakeRotation(M_PI_4 +  y+x)]];
-//	UIImage *shineY = [UIImage imageWithCIImage:[_shineY.CIImage imageByApplyingTransform:CGAffineTransformMakeRotation(M_PI_4 + -y+x)]];
-	
-//	NSDate *rotate = [NSDate date];
-	
+	// Rotate the base to get proper lighting on top and bottom
 	[[_base squareImageRotatedByRadians:(x)] drawInRect:rect];
-//	[_base drawInRect:rect];
 	
-//	[shineX drawInRect:rect];
+	// Empty float value to be used in modff
+	float *f = malloc(sizeof(float));
+	
+	// Get the first shine and draw it
+	UIImage *shineX = [UIImage imageWithSize:rect.size drawing:^(CGContextRef context, CGRect drawingRect)
+					   {
+						   CGContextDrawConicalGradientWithDictionary(context, drawingRect,
+								@{@(modff((0.09375 + y/4 + x/8 + 1), f)): [UIColor colorWithWhite:0.40f alpha:1.0f],
+								  @(modff((0.25000 + y/4 + x/8 + 1), f)): [UIColor colorWithWhite:0.90f alpha:1.0f],
+								  @(modff((0.40625 + y/4 + x/8 + 1), f)): [UIColor colorWithWhite:0.40f alpha:1.0f],
+								  @(modff((0.59375 + y/4 + x/8 + 1), f)): [UIColor colorWithWhite:0.40f alpha:1.0f],
+								  @(modff((0.75000 + y/4 + x/8 + 1), f)): [UIColor colorWithWhite:0.90f alpha:1.0f],
+								  @(modff((0.90625 + y/4 + x/8 + 1), f)): [UIColor colorWithWhite:0.40f alpha:1.0f]});
+					   }];
 	[shineX drawInRect:rect blendMode:kCGBlendModeOverlay alpha:(1.0f - x)];
 	
-//	[shineY drawInRect:rect];
+	// Get the second shine and draw it
+	UIImage *shineY = [UIImage imageWithSize:rect.size drawing:^(CGContextRef context, CGRect drawingRect)
+					   {
+						   CGContextDrawConicalGradientWithDictionary(context, drawingRect,
+								@{@(modff((0.09375 - y/4 + x/8 + 1), f)): [UIColor colorWithWhite:0.40f alpha:1.0f],
+								  @(modff((0.25000 - y/4 + x/8 + 1), f)): [UIColor colorWithWhite:0.90f alpha:1.0f],
+								  @(modff((0.40625 - y/4 + x/8 + 1), f)): [UIColor colorWithWhite:0.40f alpha:1.0f],
+								  @(modff((0.59375 - y/4 + x/8 + 1), f)): [UIColor colorWithWhite:0.40f alpha:1.0f],
+								  @(modff((0.75000 - y/4 + x/8 + 1), f)): [UIColor colorWithWhite:0.90f alpha:1.0f],
+								  @(modff((0.90625 - y/4 + x/8 + 1), f)): [UIColor colorWithWhite:0.40f alpha:1.0f]});
+					   }];
 	[shineY drawInRect:rect blendMode:kCGBlendModeOverlay alpha:(1.0f + x)];
-	
-//	NSLog(@"rotate: %f drawInRect: %f", [begin timeIntervalSinceDate:rotate], [rotate timeIntervalSinceNow]);
 }
 
 @end
