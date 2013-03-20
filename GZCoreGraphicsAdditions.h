@@ -1,3 +1,8 @@
+//
+// Original code by galaxas0 via https://github.com/galaxas0/Core-Graphics-Additions
+// Modified by Matt Zanchelli
+//
+
 #import <UIKit/UIKit.h>
 
 @interface UIImage (DrawingBlock)
