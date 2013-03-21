@@ -10,7 +10,6 @@
 #import <CoreMotion/CoreMotion.h>
 
 #import "MTZTiltReflectionKnob.h"
-#import "UIImage+Rotate.h"
 #import "GZCoreGraphicsAdditions.h"
 
 // Private properties.
@@ -163,9 +162,8 @@
 - (void)drawRect:(CGRect)rect
 {
 	// Mask it to a circle (radius is half the width)
-	CALayer *imageLayer = self.layer;
-	[imageLayer setCornerRadius:rect.size.width/2];
-	[imageLayer setMasksToBounds:YES];
+	[self.layer setCornerRadius:rect.size.width/2];
+	[self.layer setMasksToBounds:YES];
 	
 	// Draw the knob's base
 	[_baseImage drawInRect:rect];
