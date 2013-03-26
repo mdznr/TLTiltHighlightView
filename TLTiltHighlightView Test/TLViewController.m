@@ -10,13 +10,12 @@
 
 #import "TLTiltHighlightView.h"
 #import "MTZTiltShadowView.h"
-#import "MTZTiltReflectionKnob.h"
+#import "MTZTiltReflectionSlider.h"
 
 @interface TLViewController ()
 
-@property (strong, nonatomic) IBOutlet MTZTiltReflectionKnob *knob;
-@property (strong, nonatomic) IBOutlet MTZTiltReflectionKnob *knobLarge;
-@property (strong, nonatomic) IBOutlet MTZTiltReflectionKnob *knobTiny;
+@property (strong, nonatomic) IBOutlet MTZTiltReflectionSlider *slider;
+@property (strong, nonatomic) IBOutlet MTZTiltReflectionSlider *smallSlider;
 
 @end
 
@@ -25,9 +24,8 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	[_knob setBaseImage:[UIImage imageNamed:@"SliderKnobBase"]];
-	[_knobLarge setBaseImage:[UIImage imageNamed:@"SliderKnobBaseLarge"]];
-	[_knobTiny setBaseImage:[UIImage imageNamed:@"SliderKnobBaseTiny"]];
+	[_slider setSize:MTZTiltReflectionSliderSizeRegular];
+	[_smallSlider setSize:MTZTiltReflectionSliderSizeSmall];
 }
 
 - (BOOL)shouldAutorotate
@@ -48,12 +46,14 @@
 
 - (void)becomeInactive
 {
-	[_knob stopMotionDetection];
+	[_slider stopMotionDetection];
+	[_smallSlider stopMotionDetection];
 }
 
 - (void)becomeActive
 {
-	[_knob resumeMotionDetection];
+	[_slider resumeMotionDetection];
+	[_smallSlider resumeMotionDetection];
 }
 
 @end

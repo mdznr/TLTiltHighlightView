@@ -10,7 +10,15 @@
 
 @interface MTZTiltReflectionSlider : UISlider
 
-@property (nonatomic, strong) UIImage *baseImage;
+typedef enum {
+	MTZTiltReflectionSliderSizeRegular,
+	MTZTiltReflectionSliderSizeSmall
+} MTZTiltReflectionSliderSize;
+
+// Size of the slider (Small or Regular). Regular by default
+@property (nonatomic) MTZTiltReflectionSliderSize size;
+
+- (id)initWithSliderSize:(MTZTiltReflectionSliderSize)sliderSize;
 
 - (void)stopMotionDetection;
 - (void)resumeMotionDetection;

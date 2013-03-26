@@ -17,22 +17,27 @@
 		5EBEFCE316E6A86800C19486 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5EBEFCE016E6A86800C19486 /* Default-568h@2x.png */; };
 		5EBEFCE416E6A86800C19486 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 5EBEFCE116E6A86800C19486 /* Default.png */; };
 		5EBEFCE516E6A86800C19486 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5EBEFCE216E6A86800C19486 /* Default@2x.png */; };
-		5EBEFCE616E6A90500C19486 /* TLTiltHighlightView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E9C08CE16E63BE70072CCC7 /* TLTiltHighlightView.m */; };
 		5EBEFCE716E6A94200C19486 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E9C08DC16E65E3F0072CCC7 /* main.m */; };
-		C91897D816F8EC0C00AAF1EB /* GZCoreGraphicsAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = C91897D716F8EC0C00AAF1EB /* GZCoreGraphicsAdditions.m */; };
-		C91897DC16FA4C6F00AAF1EB /* SliderKnobBaseLarge.png in Resources */ = {isa = PBXBuildFile; fileRef = C91897DB16FA4C6F00AAF1EB /* SliderKnobBaseLarge.png */; };
-		C91897DE16FA4F0300AAF1EB /* SliderKnobBaseTiny.png in Resources */ = {isa = PBXBuildFile; fileRef = C91897DD16FA4F0300AAF1EB /* SliderKnobBaseTiny.png */; };
-		C92B52BA16F3E33700BDAB5D /* SliderKnobBase.png in Resources */ = {isa = PBXBuildFile; fileRef = C92B52B816F3E33600BDAB5D /* SliderKnobBase.png */; };
-		C92B52C116F3E3F300BDAB5D /* MTZTiltReflectionKnob.m in Sources */ = {isa = PBXBuildFile; fileRef = C92B52C016F3E3F200BDAB5D /* MTZTiltReflectionKnob.m */; };
-		C92B52C416F3FBF400BDAB5D /* UIImage+Rotate.m in Sources */ = {isa = PBXBuildFile; fileRef = C92B52C316F3FBF400BDAB5D /* UIImage+Rotate.m */; };
-		C974616816F11D2C00C2C633 /* MTZTiltShadowView.m in Sources */ = {isa = PBXBuildFile; fileRef = C974616716F11D2C00C2C633 /* MTZTiltShadowView.m */; };
+		C933F83116FCE5FA007B1760 /* FastForwardButton.png in Resources */ = {isa = PBXBuildFile; fileRef = C933F82B16FCE5FA007B1760 /* FastForwardButton.png */; };
+		C933F83216FCE5FA007B1760 /* FastForwardButton@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C933F82C16FCE5FA007B1760 /* FastForwardButton@2x.png */; };
+		C933F83316FCE5FA007B1760 /* PlayButton.png in Resources */ = {isa = PBXBuildFile; fileRef = C933F82D16FCE5FA007B1760 /* PlayButton.png */; };
+		C933F83416FCE5FA007B1760 /* PlayButton@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C933F82E16FCE5FA007B1760 /* PlayButton@2x.png */; };
+		C933F83516FCE5FA007B1760 /* RewindButton.png in Resources */ = {isa = PBXBuildFile; fileRef = C933F82F16FCE5FA007B1760 /* RewindButton.png */; };
+		C933F83616FCE5FA007B1760 /* RewindButton@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C933F83016FCE5FA007B1760 /* RewindButton@2x.png */; };
+		C933F84116FCE67B007B1760 /* GZCoreGraphicsAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = C933F83916FCE67A007B1760 /* GZCoreGraphicsAdditions.m */; };
+		C933F84716FCE67B007B1760 /* MTZTiltReflectionSlider.m in Sources */ = {isa = PBXBuildFile; fileRef = C933F84016FCE67B007B1760 /* MTZTiltReflectionSlider.m */; };
+		C933F84C16FCE6D6007B1760 /* MTZTiltShadowView.m in Sources */ = {isa = PBXBuildFile; fileRef = C933F84B16FCE6D6007B1760 /* MTZTiltShadowView.m */; };
+		C933F85016FCE6E4007B1760 /* TLTiltHighlightView.m in Sources */ = {isa = PBXBuildFile; fileRef = C933F84F16FCE6E4007B1760 /* TLTiltHighlightView.m */; };
+		C933F85A16FCFC6B007B1760 /* MTZTiltReflectionSliderKnobBase-Small.png in Resources */ = {isa = PBXBuildFile; fileRef = C933F85216FCFC6B007B1760 /* MTZTiltReflectionSliderKnobBase-Small.png */; };
+		C933F85B16FCFC6B007B1760 /* MTZTiltReflectionSliderKnobBase-Small@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C933F85316FCFC6B007B1760 /* MTZTiltReflectionSliderKnobBase-Small@2x.png */; };
+		C933F85C16FCFC6B007B1760 /* MTZTiltReflectionSliderKnobBase.png in Resources */ = {isa = PBXBuildFile; fileRef = C933F85416FCFC6B007B1760 /* MTZTiltReflectionSliderKnobBase.png */; };
+		C933F85D16FCFC6B007B1760 /* MTZTiltReflectionSliderKnobBase@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C933F85516FCFC6B007B1760 /* MTZTiltReflectionSliderKnobBase@2x.png */; };
+		C933F85E16FCFC6B007B1760 /* MTZTiltReflectionSliderTrackEmpty.png in Resources */ = {isa = PBXBuildFile; fileRef = C933F85616FCFC6B007B1760 /* MTZTiltReflectionSliderTrackEmpty.png */; };
+		C933F85F16FCFC6B007B1760 /* MTZTiltReflectionSliderTrackEmpty@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C933F85716FCFC6B007B1760 /* MTZTiltReflectionSliderTrackEmpty@2x.png */; };
+		C933F86016FCFC6B007B1760 /* MTZTiltReflectionSliderTrackFill.png in Resources */ = {isa = PBXBuildFile; fileRef = C933F85816FCFC6B007B1760 /* MTZTiltReflectionSliderTrackFill.png */; };
+		C933F86116FCFC6B007B1760 /* MTZTiltReflectionSliderTrackFill@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C933F85916FCFC6B007B1760 /* MTZTiltReflectionSliderTrackFill@2x.png */; };
+		C933F86416FE4C8A007B1760 /* UIImage+Shadow.m in Sources */ = {isa = PBXBuildFile; fileRef = C933F86316FE4C8A007B1760 /* UIImage+Shadow.m */; };
 		C974616D16F11F5A00C2C633 /* TLViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C974616C16F11F5A00C2C633 /* TLViewController.xib */; };
-		C9764F6516F1729A00552CC9 /* PlayButton.png in Resources */ = {isa = PBXBuildFile; fileRef = C9764F6116F1729A00552CC9 /* PlayButton.png */; };
-		C9764F6616F1729A00552CC9 /* PlayButton@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C9764F6216F1729A00552CC9 /* PlayButton@2x.png */; };
-		C9764F6B16F17A0000552CC9 /* FastForwardButton.png in Resources */ = {isa = PBXBuildFile; fileRef = C9764F6716F17A0000552CC9 /* FastForwardButton.png */; };
-		C9764F6C16F17A0000552CC9 /* FastForwardButton@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C9764F6816F17A0000552CC9 /* FastForwardButton@2x.png */; };
-		C9764F6D16F17A0000552CC9 /* RewindButton.png in Resources */ = {isa = PBXBuildFile; fileRef = C9764F6916F17A0000552CC9 /* RewindButton.png */; };
-		C9764F6E16F17A0000552CC9 /* RewindButton@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C9764F6A16F17A0000552CC9 /* RewindButton@2x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,8 +45,6 @@
 		5E9C08AA16E63B440072CCC7 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		5E9C08AC16E63B440072CCC7 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		5E9C08AE16E63B440072CCC7 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
-		5E9C08CD16E63BE70072CCC7 /* TLTiltHighlightView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TLTiltHighlightView.h; sourceTree = SOURCE_ROOT; };
-		5E9C08CE16E63BE70072CCC7 /* TLTiltHighlightView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TLTiltHighlightView.m; sourceTree = SOURCE_ROOT; };
 		5E9C08D016E63CFC0072CCC7 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		5E9C08D216E640060072CCC7 /* CoreMotion.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMotion.framework; path = System/Library/Frameworks/CoreMotion.framework; sourceTree = SDKROOT; };
 		5E9C08DC16E65E3F0072CCC7 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = main.m; path = "TLTiltHighlightView Test/main.m"; sourceTree = SOURCE_ROOT; };
@@ -54,24 +57,31 @@
 		5EBEFCE016E6A86800C19486 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = SOURCE_ROOT; };
 		5EBEFCE116E6A86800C19486 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = SOURCE_ROOT; };
 		5EBEFCE216E6A86800C19486 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = SOURCE_ROOT; };
-		C91897D616F8EC0C00AAF1EB /* GZCoreGraphicsAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GZCoreGraphicsAdditions.h; sourceTree = SOURCE_ROOT; };
-		C91897D716F8EC0C00AAF1EB /* GZCoreGraphicsAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GZCoreGraphicsAdditions.m; sourceTree = SOURCE_ROOT; };
-		C91897DB16FA4C6F00AAF1EB /* SliderKnobBaseLarge.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = SliderKnobBaseLarge.png; sourceTree = SOURCE_ROOT; };
-		C91897DD16FA4F0300AAF1EB /* SliderKnobBaseTiny.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = SliderKnobBaseTiny.png; sourceTree = SOURCE_ROOT; };
-		C92B52B816F3E33600BDAB5D /* SliderKnobBase.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = SliderKnobBase.png; sourceTree = SOURCE_ROOT; };
-		C92B52BF16F3E3F200BDAB5D /* MTZTiltReflectionKnob.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTZTiltReflectionKnob.h; sourceTree = SOURCE_ROOT; };
-		C92B52C016F3E3F200BDAB5D /* MTZTiltReflectionKnob.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTZTiltReflectionKnob.m; sourceTree = SOURCE_ROOT; };
-		C92B52C216F3FBF400BDAB5D /* UIImage+Rotate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Rotate.h"; sourceTree = SOURCE_ROOT; };
-		C92B52C316F3FBF400BDAB5D /* UIImage+Rotate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Rotate.m"; sourceTree = SOURCE_ROOT; };
-		C974616616F11D2C00C2C633 /* MTZTiltShadowView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTZTiltShadowView.h; sourceTree = SOURCE_ROOT; };
-		C974616716F11D2C00C2C633 /* MTZTiltShadowView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTZTiltShadowView.m; sourceTree = SOURCE_ROOT; };
+		C933F82B16FCE5FA007B1760 /* FastForwardButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = FastForwardButton.png; path = "TLTiltHighlightView Test/FastForwardButton.png"; sourceTree = SOURCE_ROOT; };
+		C933F82C16FCE5FA007B1760 /* FastForwardButton@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "FastForwardButton@2x.png"; path = "TLTiltHighlightView Test/FastForwardButton@2x.png"; sourceTree = SOURCE_ROOT; };
+		C933F82D16FCE5FA007B1760 /* PlayButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = PlayButton.png; path = "TLTiltHighlightView Test/PlayButton.png"; sourceTree = SOURCE_ROOT; };
+		C933F82E16FCE5FA007B1760 /* PlayButton@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "PlayButton@2x.png"; path = "TLTiltHighlightView Test/PlayButton@2x.png"; sourceTree = SOURCE_ROOT; };
+		C933F82F16FCE5FA007B1760 /* RewindButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = RewindButton.png; path = "TLTiltHighlightView Test/RewindButton.png"; sourceTree = SOURCE_ROOT; };
+		C933F83016FCE5FA007B1760 /* RewindButton@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "RewindButton@2x.png"; path = "TLTiltHighlightView Test/RewindButton@2x.png"; sourceTree = SOURCE_ROOT; };
+		C933F83816FCE67A007B1760 /* GZCoreGraphicsAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GZCoreGraphicsAdditions.h; path = MTZTiltReflectionSlider/GZCoreGraphicsAdditions.h; sourceTree = SOURCE_ROOT; };
+		C933F83916FCE67A007B1760 /* GZCoreGraphicsAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GZCoreGraphicsAdditions.m; path = MTZTiltReflectionSlider/GZCoreGraphicsAdditions.m; sourceTree = SOURCE_ROOT; };
+		C933F83F16FCE67B007B1760 /* MTZTiltReflectionSlider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MTZTiltReflectionSlider.h; path = MTZTiltReflectionSlider/MTZTiltReflectionSlider.h; sourceTree = SOURCE_ROOT; };
+		C933F84016FCE67B007B1760 /* MTZTiltReflectionSlider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MTZTiltReflectionSlider.m; path = MTZTiltReflectionSlider/MTZTiltReflectionSlider.m; sourceTree = SOURCE_ROOT; };
+		C933F84A16FCE6D6007B1760 /* MTZTiltShadowView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MTZTiltShadowView.h; path = MTZTiltShadowView/MTZTiltShadowView.h; sourceTree = SOURCE_ROOT; };
+		C933F84B16FCE6D6007B1760 /* MTZTiltShadowView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MTZTiltShadowView.m; path = MTZTiltShadowView/MTZTiltShadowView.m; sourceTree = SOURCE_ROOT; };
+		C933F84E16FCE6E4007B1760 /* TLTiltHighlightView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TLTiltHighlightView.h; sourceTree = "<group>"; };
+		C933F84F16FCE6E4007B1760 /* TLTiltHighlightView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TLTiltHighlightView.m; sourceTree = "<group>"; };
+		C933F85216FCFC6B007B1760 /* MTZTiltReflectionSliderKnobBase-Small.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "MTZTiltReflectionSliderKnobBase-Small.png"; path = "MTZTiltReflectionSlider/MTZTiltReflectionSliderKnobBase-Small.png"; sourceTree = SOURCE_ROOT; };
+		C933F85316FCFC6B007B1760 /* MTZTiltReflectionSliderKnobBase-Small@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "MTZTiltReflectionSliderKnobBase-Small@2x.png"; path = "MTZTiltReflectionSlider/MTZTiltReflectionSliderKnobBase-Small@2x.png"; sourceTree = SOURCE_ROOT; };
+		C933F85416FCFC6B007B1760 /* MTZTiltReflectionSliderKnobBase.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = MTZTiltReflectionSliderKnobBase.png; path = MTZTiltReflectionSlider/MTZTiltReflectionSliderKnobBase.png; sourceTree = SOURCE_ROOT; };
+		C933F85516FCFC6B007B1760 /* MTZTiltReflectionSliderKnobBase@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "MTZTiltReflectionSliderKnobBase@2x.png"; path = "MTZTiltReflectionSlider/MTZTiltReflectionSliderKnobBase@2x.png"; sourceTree = SOURCE_ROOT; };
+		C933F85616FCFC6B007B1760 /* MTZTiltReflectionSliderTrackEmpty.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = MTZTiltReflectionSliderTrackEmpty.png; path = MTZTiltReflectionSlider/MTZTiltReflectionSliderTrackEmpty.png; sourceTree = SOURCE_ROOT; };
+		C933F85716FCFC6B007B1760 /* MTZTiltReflectionSliderTrackEmpty@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "MTZTiltReflectionSliderTrackEmpty@2x.png"; path = "MTZTiltReflectionSlider/MTZTiltReflectionSliderTrackEmpty@2x.png"; sourceTree = SOURCE_ROOT; };
+		C933F85816FCFC6B007B1760 /* MTZTiltReflectionSliderTrackFill.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = MTZTiltReflectionSliderTrackFill.png; path = MTZTiltReflectionSlider/MTZTiltReflectionSliderTrackFill.png; sourceTree = SOURCE_ROOT; };
+		C933F85916FCFC6B007B1760 /* MTZTiltReflectionSliderTrackFill@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "MTZTiltReflectionSliderTrackFill@2x.png"; path = "MTZTiltReflectionSlider/MTZTiltReflectionSliderTrackFill@2x.png"; sourceTree = SOURCE_ROOT; };
+		C933F86216FE4C8A007B1760 /* UIImage+Shadow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIImage+Shadow.h"; path = "../MTZTiltReflectionSlider/UIImage+Shadow.h"; sourceTree = "<group>"; };
+		C933F86316FE4C8A007B1760 /* UIImage+Shadow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIImage+Shadow.m"; path = "../MTZTiltReflectionSlider/UIImage+Shadow.m"; sourceTree = "<group>"; };
 		C974616C16F11F5A00C2C633 /* TLViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = TLViewController.xib; path = "TLTiltHighlightView Test/TLViewController.xib"; sourceTree = SOURCE_ROOT; };
-		C9764F6116F1729A00552CC9 /* PlayButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = PlayButton.png; path = "TLTiltHighlightView Test/PlayButton.png"; sourceTree = SOURCE_ROOT; };
-		C9764F6216F1729A00552CC9 /* PlayButton@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "PlayButton@2x.png"; path = "TLTiltHighlightView Test/PlayButton@2x.png"; sourceTree = SOURCE_ROOT; };
-		C9764F6716F17A0000552CC9 /* FastForwardButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = FastForwardButton.png; path = "TLTiltHighlightView Test/FastForwardButton.png"; sourceTree = SOURCE_ROOT; };
-		C9764F6816F17A0000552CC9 /* FastForwardButton@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "FastForwardButton@2x.png"; path = "TLTiltHighlightView Test/FastForwardButton@2x.png"; sourceTree = SOURCE_ROOT; };
-		C9764F6916F17A0000552CC9 /* RewindButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = RewindButton.png; path = "TLTiltHighlightView Test/RewindButton.png"; sourceTree = SOURCE_ROOT; };
-		C9764F6A16F17A0000552CC9 /* RewindButton@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "RewindButton@2x.png"; path = "TLTiltHighlightView Test/RewindButton@2x.png"; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -127,25 +137,9 @@
 				5E9C08E116E65E3F0072CCC7 /* TLViewController.h */,
 				5E9C08E216E65E3F0072CCC7 /* TLViewController.m */,
 				C974616C16F11F5A00C2C633 /* TLViewController.xib */,
-				5E9C08CD16E63BE70072CCC7 /* TLTiltHighlightView.h */,
-				5E9C08CE16E63BE70072CCC7 /* TLTiltHighlightView.m */,
-				C974616616F11D2C00C2C633 /* MTZTiltShadowView.h */,
-				C974616716F11D2C00C2C633 /* MTZTiltShadowView.m */,
-				C92B52BF16F3E3F200BDAB5D /* MTZTiltReflectionKnob.h */,
-				C92B52C016F3E3F200BDAB5D /* MTZTiltReflectionKnob.m */,
-				C92B52C216F3FBF400BDAB5D /* UIImage+Rotate.h */,
-				C92B52C316F3FBF400BDAB5D /* UIImage+Rotate.m */,
-				C91897D616F8EC0C00AAF1EB /* GZCoreGraphicsAdditions.h */,
-				C91897D716F8EC0C00AAF1EB /* GZCoreGraphicsAdditions.m */,
-				C9764F6716F17A0000552CC9 /* FastForwardButton.png */,
-				C9764F6816F17A0000552CC9 /* FastForwardButton@2x.png */,
-				C9764F6116F1729A00552CC9 /* PlayButton.png */,
-				C9764F6216F1729A00552CC9 /* PlayButton@2x.png */,
-				C9764F6916F17A0000552CC9 /* RewindButton.png */,
-				C9764F6A16F17A0000552CC9 /* RewindButton@2x.png */,
-				C92B52B816F3E33600BDAB5D /* SliderKnobBase.png */,
-				C91897DB16FA4C6F00AAF1EB /* SliderKnobBaseLarge.png */,
-				C91897DD16FA4F0300AAF1EB /* SliderKnobBaseTiny.png */,
+				C933F85116FCE6E7007B1760 /* TLTiltHighlightView */,
+				C933F84D16FCE6D9007B1760 /* MTZTiltShadowView */,
+				C933F84816FCE681007B1760 /* MTZTiltReflectionSlider */,
 				5E9C08B116E63B440072CCC7 /* Supporting Files */,
 			);
 			path = TLTiltHighlightView;
@@ -160,8 +154,69 @@
 				5E9C08DC16E65E3F0072CCC7 /* main.m */,
 				5E9C08DF16E65E3F0072CCC7 /* TLTiltHighlightView-Test-Info.plist */,
 				5E9C08E016E65E3F0072CCC7 /* TLTiltHighlightView-Test-Prefix.pch */,
+				C933F83716FCE5FD007B1760 /* Graphics */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		C933F83716FCE5FD007B1760 /* Graphics */ = {
+			isa = PBXGroup;
+			children = (
+				C933F82B16FCE5FA007B1760 /* FastForwardButton.png */,
+				C933F82C16FCE5FA007B1760 /* FastForwardButton@2x.png */,
+				C933F82D16FCE5FA007B1760 /* PlayButton.png */,
+				C933F82E16FCE5FA007B1760 /* PlayButton@2x.png */,
+				C933F82F16FCE5FA007B1760 /* RewindButton.png */,
+				C933F83016FCE5FA007B1760 /* RewindButton@2x.png */,
+			);
+			name = Graphics;
+			sourceTree = "<group>";
+		};
+		C933F84816FCE681007B1760 /* MTZTiltReflectionSlider */ = {
+			isa = PBXGroup;
+			children = (
+				C933F83F16FCE67B007B1760 /* MTZTiltReflectionSlider.h */,
+				C933F84016FCE67B007B1760 /* MTZTiltReflectionSlider.m */,
+				C933F83816FCE67A007B1760 /* GZCoreGraphicsAdditions.h */,
+				C933F83916FCE67A007B1760 /* GZCoreGraphicsAdditions.m */,
+				C933F86216FE4C8A007B1760 /* UIImage+Shadow.h */,
+				C933F86316FE4C8A007B1760 /* UIImage+Shadow.m */,
+				C933F84916FCE694007B1760 /* Graphics */,
+			);
+			name = MTZTiltReflectionSlider;
+			sourceTree = "<group>";
+		};
+		C933F84916FCE694007B1760 /* Graphics */ = {
+			isa = PBXGroup;
+			children = (
+				C933F85216FCFC6B007B1760 /* MTZTiltReflectionSliderKnobBase-Small.png */,
+				C933F85316FCFC6B007B1760 /* MTZTiltReflectionSliderKnobBase-Small@2x.png */,
+				C933F85416FCFC6B007B1760 /* MTZTiltReflectionSliderKnobBase.png */,
+				C933F85516FCFC6B007B1760 /* MTZTiltReflectionSliderKnobBase@2x.png */,
+				C933F85616FCFC6B007B1760 /* MTZTiltReflectionSliderTrackEmpty.png */,
+				C933F85716FCFC6B007B1760 /* MTZTiltReflectionSliderTrackEmpty@2x.png */,
+				C933F85816FCFC6B007B1760 /* MTZTiltReflectionSliderTrackFill.png */,
+				C933F85916FCFC6B007B1760 /* MTZTiltReflectionSliderTrackFill@2x.png */,
+			);
+			name = Graphics;
+			sourceTree = "<group>";
+		};
+		C933F84D16FCE6D9007B1760 /* MTZTiltShadowView */ = {
+			isa = PBXGroup;
+			children = (
+				C933F84A16FCE6D6007B1760 /* MTZTiltShadowView.h */,
+				C933F84B16FCE6D6007B1760 /* MTZTiltShadowView.m */,
+			);
+			name = MTZTiltShadowView;
+			sourceTree = "<group>";
+		};
+		C933F85116FCE6E7007B1760 /* TLTiltHighlightView */ = {
+			isa = PBXGroup;
+			children = (
+				C933F84E16FCE6E4007B1760 /* TLTiltHighlightView.h */,
+				C933F84F16FCE6E4007B1760 /* TLTiltHighlightView.m */,
+			);
+			name = TLTiltHighlightView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -220,15 +275,20 @@
 				5EBEFCE416E6A86800C19486 /* Default.png in Resources */,
 				5EBEFCE516E6A86800C19486 /* Default@2x.png in Resources */,
 				C974616D16F11F5A00C2C633 /* TLViewController.xib in Resources */,
-				C9764F6516F1729A00552CC9 /* PlayButton.png in Resources */,
-				C9764F6616F1729A00552CC9 /* PlayButton@2x.png in Resources */,
-				C9764F6B16F17A0000552CC9 /* FastForwardButton.png in Resources */,
-				C9764F6C16F17A0000552CC9 /* FastForwardButton@2x.png in Resources */,
-				C9764F6D16F17A0000552CC9 /* RewindButton.png in Resources */,
-				C9764F6E16F17A0000552CC9 /* RewindButton@2x.png in Resources */,
-				C92B52BA16F3E33700BDAB5D /* SliderKnobBase.png in Resources */,
-				C91897DC16FA4C6F00AAF1EB /* SliderKnobBaseLarge.png in Resources */,
-				C91897DE16FA4F0300AAF1EB /* SliderKnobBaseTiny.png in Resources */,
+				C933F83116FCE5FA007B1760 /* FastForwardButton.png in Resources */,
+				C933F83216FCE5FA007B1760 /* FastForwardButton@2x.png in Resources */,
+				C933F83316FCE5FA007B1760 /* PlayButton.png in Resources */,
+				C933F83416FCE5FA007B1760 /* PlayButton@2x.png in Resources */,
+				C933F83516FCE5FA007B1760 /* RewindButton.png in Resources */,
+				C933F83616FCE5FA007B1760 /* RewindButton@2x.png in Resources */,
+				C933F85A16FCFC6B007B1760 /* MTZTiltReflectionSliderKnobBase-Small.png in Resources */,
+				C933F85B16FCFC6B007B1760 /* MTZTiltReflectionSliderKnobBase-Small@2x.png in Resources */,
+				C933F85C16FCFC6B007B1760 /* MTZTiltReflectionSliderKnobBase.png in Resources */,
+				C933F85D16FCFC6B007B1760 /* MTZTiltReflectionSliderKnobBase@2x.png in Resources */,
+				C933F85E16FCFC6B007B1760 /* MTZTiltReflectionSliderTrackEmpty.png in Resources */,
+				C933F85F16FCFC6B007B1760 /* MTZTiltReflectionSliderTrackEmpty@2x.png in Resources */,
+				C933F86016FCFC6B007B1760 /* MTZTiltReflectionSliderTrackFill.png in Resources */,
+				C933F86116FCFC6B007B1760 /* MTZTiltReflectionSliderTrackFill@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -240,13 +300,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				5EBEFCE716E6A94200C19486 /* main.m in Sources */,
-				5EBEFCE616E6A90500C19486 /* TLTiltHighlightView.m in Sources */,
 				5EBEFCDF16E6A84400C19486 /* TLAppDelegate.m in Sources */,
 				5EBEFCDE16E6A84200C19486 /* TLViewController.m in Sources */,
-				C974616816F11D2C00C2C633 /* MTZTiltShadowView.m in Sources */,
-				C92B52C116F3E3F300BDAB5D /* MTZTiltReflectionKnob.m in Sources */,
-				C92B52C416F3FBF400BDAB5D /* UIImage+Rotate.m in Sources */,
-				C91897D816F8EC0C00AAF1EB /* GZCoreGraphicsAdditions.m in Sources */,
+				C933F84116FCE67B007B1760 /* GZCoreGraphicsAdditions.m in Sources */,
+				C933F84716FCE67B007B1760 /* MTZTiltReflectionSlider.m in Sources */,
+				C933F84C16FCE6D6007B1760 /* MTZTiltShadowView.m in Sources */,
+				C933F85016FCE6E4007B1760 /* TLTiltHighlightView.m in Sources */,
+				C933F86416FE4C8A007B1760 /* UIImage+Shadow.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

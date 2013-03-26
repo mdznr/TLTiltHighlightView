@@ -11,6 +11,7 @@
 
 #import "MTZTiltReflectionSlider.h"
 #import "GZCoreGraphicsAdditions.h"
+#import "UIImage+Shadow.h"
 
 // Private properties.
 @interface MTZTiltReflectionSlider ()
@@ -24,6 +25,8 @@
 @property double previousRoll;
 @property double previousPitch;
 
+@property UIImage *baseImage;
+
 - (UIImage *)createKnobWithBase:(UIImage *)base
 					   andShine:(UIImage *)shine1 withAlpha:(CGFloat)alpha1
 					   andShine:(UIImage *)shine2 withAlpha:(CGFloat)alpha2;
@@ -32,8 +35,6 @@
 
 @implementation MTZTiltReflectionSlider
 
-@synthesize baseImage = _baseImage;
-
 #pragma mark - Public Initializers
 
 // Allows support for using instances loaded from nibs or storyboards.
@@ -41,6 +42,7 @@
 {
     self = [super initWithCoder:aCoder];
     if ( self ) {
+		[self setSize:MTZTiltReflectionSliderSizeRegular];
         [self setup];
     }
     return self;
@@ -50,9 +52,20 @@
 {
     self = [super initWithFrame:frame];
     if ( self ) {
+		[self setSize:MTZTiltReflectionSliderSizeRegular];
         [self setup];
     }
     return self;
+}
+
+- (id)initWithSliderSize:(MTZTiltReflectionSliderSize)sliderSize
+{
+	self = [super init];
+	if ( self ) {
+		[self setSize:sliderSize];
+		[self setup];
+	}
+	return self;
 }
 
 - (void)awakeFromNib
@@ -70,15 +83,43 @@
 
 // Sets up the initial state of the view.
 - (void)setup
-{
-	[self setMinimumTrackImage:[[UIImage imageNamed:@"higlightedBarBackground"] resizableImageWithCapInsets:UIEdgeInsetsMake(0, 4, 0, 0)] forState:UIControlStateNormal];
-    [self setMaximumTrackImage:[[UIImage imageNamed:@"trackBackground"] resizableImageWithCapInsets:UIEdgeInsetsMake(0, 0, 0, 4)] forState:UIControlStateNormal];
+{	
+	// Set the slider track images
+	[self setMinimumTrackImage:[[UIImage imageNamed:@"MTZTiltReflectionSliderTrackFill"]
+								resizableImageWithCapInsets:UIEdgeInsetsMake(0, 6, 0, 0)]
+					  forState:UIControlStateNormal];
 	
-    // Drawing code
-	_baseImage  = [UIImage imageNamed:@"SliderKnobBaseRegular"];
+	[self setMaximumTrackImage:[[UIImage imageNamed:@"MTZTiltReflectionSliderTrackEmpty"]
+								resizableImageWithCapInsets:UIEdgeInsetsMake(0, 0, 0, 6)]
+					  forState:UIControlStateNormal];
 	
     // Set up our motion updates
     [self setupMotionDetection];
+}
+
+- (void)setSize:(MTZTiltReflectionSliderSize)size
+{
+	_size = size;
+	
+	// Set the base image
+	switch ( _size ) {
+		case MTZTiltReflectionSliderSizeRegular:
+			_baseImage = [UIImage imageNamed:@"MTZTiltReflectionSliderKnobBase"];
+			break;
+		case MTZTiltReflectionSliderSizeSmall:
+			_baseImage = [UIImage imageNamed:@"MTZTiltReflectionSliderKnobBase-Small"];
+			break;
+		default:
+			break;
+	}
+	
+	[self updateButtonImageForRoll:_xMotion pitch:_yMotion];
+}
+
+- (CGRect)trackRectForBounds:(CGRect)bounds
+{
+	// Set the correct bounds for the track.
+	return (CGRect){0, 0, bounds.size.width, 10};
 }
 
 // Starts the
@@ -255,10 +296,15 @@
 										 andShine:shineX withAlpha:(1.0f-x)
 										 andShine:shineY withAlpha:(1.0f+x)];
 	
+	UIImage *knobImageNormal = [knobImage imageWithShadowOfSize:2];
+	UIImage *knobImageHighlighted = [knobImage imageWithShadowOfSize:5];
+#warning the change in shadow size changes tappable area and can create undesirable sudden slight changes in movement.
+#warning creating two images may be unnecessary
+	
 	// Set it as the thumbImage
-    [self setThumbImage:knobImage forState:UIControlStateNormal];
-    [self setThumbImage:knobImage forState:UIControlStateSelected];
-    [self setThumbImage:knobImage forState:UIControlStateHighlighted];
+    [self setThumbImage:knobImageNormal forState:UIControlStateNormal];
+	[self setThumbImage:knobImageNormal forState:UIControlStateSelected];
+    [self setThumbImage:knobImageHighlighted forState:UIControlStateHighlighted];
 }
 
 @end
