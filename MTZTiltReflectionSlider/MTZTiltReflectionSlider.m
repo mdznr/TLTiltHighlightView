@@ -93,8 +93,8 @@
 								resizableImageWithCapInsets:UIEdgeInsetsMake(0, 0, 0, 6)]
 					  forState:UIControlStateNormal];
 	
-    // Set up our motion updates
-    [self setupMotionDetection];
+	// Set up our motion updates
+	[self setupMotionDetection];
 }
 
 - (void)setSize:(MTZTiltReflectionSliderSize)size
@@ -164,7 +164,7 @@
 	self.motionManager.deviceMotionUpdateInterval = 1.0/60.0;
 	
 	if ( self.motionManager.deviceMotionAvailable ) {
-		NSOperationQueue *queue = [NSOperationQueue currentQueue];
+		NSOperationQueue *queue = [NSOperationQueue new];
 		[self.motionManager startDeviceMotionUpdatesToQueue:queue
 												withHandler:^ (CMDeviceMotion *motionData, NSError *error) {
 													[self deviceMotionDidUpdate:motionData];
@@ -177,8 +177,8 @@
 - (void)deviceMotionDidUpdate:(CMDeviceMotion *)deviceMotion
 {
 	// Don't redraw if the change in motion wasn't enough.
-	if ( ABS(deviceMotion.attitude.roll - _previousRoll) < 0.003315727981f ||
-		ABS(deviceMotion.attitude.pitch - _previousPitch) < 0.003315727981f ) {
+	if ( ABS(deviceMotion.attitude.roll - _previousRoll) < 0.003315f ||
+		ABS(deviceMotion.attitude.pitch - _previousPitch) < 0.003315f ) {
 		return;
 	}
 	
@@ -280,6 +280,7 @@
 																	  @(modff((0.75000 + y/4 + x/8 + 1), f)): [UIColor colorWithWhite:0.90f alpha:1.0f],
 																	  @(modff((0.90625 + y/4 + x/8 + 1), f)): [UIColor colorWithWhite:0.40f alpha:1.0f]});
 					   }];
+	
 	UIImage *shineY = [UIImage imageWithSize:_baseImage.size drawing:^(CGContextRef context, CGRect drawingRect)
 					   {
 						   CGContextDrawConicalGradientWithDictionary(context, drawingRect,
@@ -296,15 +297,12 @@
 										 andShine:shineX withAlpha:(1.0f-x)
 										 andShine:shineY withAlpha:(1.0f+x)];
 	
-	UIImage *knobImageNormal = [knobImage imageWithShadowOfSize:2];
-	UIImage *knobImageHighlighted = [knobImage imageWithShadowOfSize:5];
-#warning the change in shadow size changes tappable area and can create undesirable sudden slight changes in movement.
-#warning creating two images may be unnecessary
+	knobImage = [knobImage imageWithShadowOfSize:2];
 	
 	// Set it as the thumbImage
-    [self setThumbImage:knobImageNormal forState:UIControlStateNormal];
-	[self setThumbImage:knobImageNormal forState:UIControlStateSelected];
-    [self setThumbImage:knobImageHighlighted forState:UIControlStateHighlighted];
+    [self setThumbImage:knobImage forState:UIControlStateNormal];
+	[self setThumbImage:knobImage forState:UIControlStateSelected];
+    [self setThumbImage:knobImage forState:UIControlStateHighlighted];
 }
 
 @end
