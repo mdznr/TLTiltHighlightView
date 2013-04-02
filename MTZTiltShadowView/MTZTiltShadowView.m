@@ -18,6 +18,9 @@
 // Our motion manager.
 @property (nonatomic, strong) CMMotionManager *motionManager;
 
+@property double previousRoll;
+@property double previousPitch;
+
 @end
 
 @implementation MTZTiltShadowView
@@ -127,7 +130,13 @@
 #pragma mark CoreMotion Methods
 
 - (void)deviceMotionDidUpdate:(CMDeviceMotion *)deviceMotion
-{	
+{
+	// Don't redraw if the change in motion wasn't enough.
+	if ( ABS(deviceMotion.attitude.roll - _previousRoll) < 0.003315f ||
+		ABS(deviceMotion.attitude.pitch - _previousPitch) < 0.003315f ) {
+		return;
+	}
+	
     CGFloat x = 0.0f;
 	CGFloat y = 0.0f;
 	
