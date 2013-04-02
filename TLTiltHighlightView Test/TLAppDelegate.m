@@ -19,6 +19,12 @@
     self.viewController = [[TLViewController alloc] initWithNibName:@"TLViewController" bundle:nil];
     self.window.rootViewController = self.viewController;
     [self.window makeKeyAndVisible];
+	
+	[[NSNotificationCenter defaultCenter] addObserver:self
+											 selector:@selector(volumeChanged:)
+												 name:@"AVSystemController_SystemVolumeDidChangeNotification"
+											   object:nil];
+	
     return YES;
 }
 
@@ -51,6 +57,14 @@
 - (void)applicationWillTerminate:(UIApplication *)application
 {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+}
+
+- (void)volumeChanged:(NSNotification *)notification
+{
+    float volume = [[[notification userInfo] objectForKey:@"AVSystemController_AudioVolumeNotificationParameter"] floatValue];
+	
+    // Do stuff with volume
+	[_viewController volumeDidChangeTo:volume];
 }
 
 @end

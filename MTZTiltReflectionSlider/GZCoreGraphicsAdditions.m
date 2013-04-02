@@ -200,7 +200,7 @@ void CGContextDrawConicalGradient(CGContextRef context, CGRect rect, NSArray *co
         float centerY = (float) h / 2;
         
         for ( int y = 0; y < h; y++ ) {
-            for (int x = 0; x < w; x++) {
+            for ( int x = 0; x < w; x++ ) {
                 float dirX = x - centerX;
                 float dirY = y - centerY;
                 float angle = atan2f(dirY, dirX);

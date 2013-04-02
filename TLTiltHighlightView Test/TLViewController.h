@@ -12,5 +12,6 @@
 
 - (void)becomeInactive;
 - (void)becomeActive;
+- (void)volumeDidChangeTo:(float)volume;
 
 @end

@@ -12,6 +12,8 @@
 #import "MTZTiltShadowView.h"
 #import "MTZTiltReflectionSlider.h"
 
+#import <MediaPlayer/MediaPlayer.h>
+
 @interface TLViewController ()
 
 @property (strong, nonatomic) IBOutlet MTZTiltReflectionSlider *slider;
@@ -26,6 +28,12 @@
     [super viewDidLoad];
 	[_slider setSize:MTZTiltReflectionSliderSizeRegular];
 	[_smallSlider setSize:MTZTiltReflectionSliderSizeSmall];
+	
+	MPVolumeView *volumeView = [[MPVolumeView alloc] initWithFrame: CGRectZero];
+    [self.view addSubview: volumeView];
+	
+	MPMusicPlayerController *musicPlayer = [MPMusicPlayerController applicationMusicPlayer];
+	[_slider setValue:musicPlayer.volume animated:NO];
 }
 
 - (BOOL)shouldAutorotate
@@ -55,5 +63,18 @@
 	[_slider resumeMotionDetection];
 	[_smallSlider resumeMotionDetection];
 }
+
+- (void)volumeDidChangeTo:(float)volume
+{
+	[_slider setValue:volume animated:YES];
+}
+
+- (IBAction)sliderChanged:(UISlider *)sender
+{
+	MPMusicPlayerController *musicPlayer = [MPMusicPlayerController applicationMusicPlayer];
+	[musicPlayer setVolume:sender.value];
+}
+
+
 
 @end

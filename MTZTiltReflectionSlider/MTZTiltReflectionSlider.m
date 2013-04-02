@@ -132,9 +132,9 @@
 	self.motionManager.deviceMotionUpdateInterval = 1.0/60.0;
 	
 	if ( self.motionManager.deviceMotionAvailable ) {
-		NSOperationQueue *queue = [NSOperationQueue currentQueue];
+		NSOperationQueue *queue = [NSOperationQueue new];
 		[self.motionManager startDeviceMotionUpdatesToQueue:queue
-												withHandler:^ (CMDeviceMotion *motionData, NSError *error) {
+												withHandler:^(CMDeviceMotion *motionData, NSError *error) {
 													[self deviceMotionDidUpdate:motionData];
 												}];
 	}
@@ -166,7 +166,7 @@
 	if ( self.motionManager.deviceMotionAvailable ) {
 		NSOperationQueue *queue = [NSOperationQueue new];
 		[self.motionManager startDeviceMotionUpdatesToQueue:queue
-												withHandler:^ (CMDeviceMotion *motionData, NSError *error) {
+												withHandler:^(CMDeviceMotion *motionData, NSError *error) {
 													[self deviceMotionDidUpdate:motionData];
 												}];
 	}

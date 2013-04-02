@@ -19,6 +19,9 @@
 // Our motion manager.
 @property (nonatomic, strong) CMMotionManager *motionManager;
 
+@property double previousRoll;
+@property double previousPitch;
+
 @end
 
 @implementation TLTiltHighlightView
