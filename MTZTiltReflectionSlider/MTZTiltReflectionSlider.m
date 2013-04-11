@@ -122,7 +122,7 @@
 	return (CGRect){0, 0, bounds.size.width, 10};
 }
 
-// Starts the
+// Starts the Motion Detection
 - (void)setupMotionDetection
 {
     NSAssert(self.motionManager == nil, @"Motion manager being set up more than once.");
@@ -132,7 +132,7 @@
 	self.motionManager.deviceMotionUpdateInterval = 1.0/60.0;
 	
 	if ( self.motionManager.deviceMotionAvailable ) {
-		NSOperationQueue *queue = [NSOperationQueue new];
+		NSOperationQueue *queue = [NSOperationQueue currentQueue];
 		[self.motionManager startDeviceMotionUpdatesToQueue:queue
 												withHandler:^(CMDeviceMotion *motionData, NSError *error) {
 													[self deviceMotionDidUpdate:motionData];
@@ -164,7 +164,7 @@
 	self.motionManager.deviceMotionUpdateInterval = 1.0/60.0;
 	
 	if ( self.motionManager.deviceMotionAvailable ) {
-		NSOperationQueue *queue = [NSOperationQueue new];
+		NSOperationQueue *queue = [NSOperationQueue currentQueue];
 		[self.motionManager startDeviceMotionUpdatesToQueue:queue
 												withHandler:^(CMDeviceMotion *motionData, NSError *error) {
 													[self deviceMotionDidUpdate:motionData];
@@ -178,7 +178,7 @@
 {
 	// Don't redraw if the change in motion wasn't enough.
 	if ( ABS(deviceMotion.attitude.roll - _previousRoll) < 0.003315f ||
-		ABS(deviceMotion.attitude.pitch - _previousPitch) < 0.003315f ) {
+		 ABS(deviceMotion.attitude.pitch - _previousPitch) < 0.003315f ) {
 		return;
 	}
 	
@@ -251,7 +251,9 @@
 	[circle renderInContext:context];
 	CGContextRestoreGState(context);
 	
-	UIImage *outputImage = [UIImage imageWithCGImage:UIGraphicsGetImageFromCurrentImageContext().CGImage scale:scale orientation:UIImageOrientationUp];
+	UIImage *outputImage = [UIImage imageWithCGImage:UIGraphicsGetImageFromCurrentImageContext().CGImage
+											   scale:scale
+										 orientation:UIImageOrientationUp];
 	
 	UIGraphicsEndImageContext();
 	
@@ -260,9 +262,9 @@
 
 // Uppdates the Thumb (knob) image for the given roll and pitch
 -(void)updateButtonImageForRoll:(CGFloat)roll pitch:(CGFloat)pitch
-{
-	// Get the x and y motinos
-	//	x and y vary from -1 to 1
+{	
+	// Get the x and y motions
+	// x and y vary from -1 to 1
 	CGFloat x = -roll;
 	CGFloat y =  pitch;
 	
@@ -270,32 +272,34 @@
 	float *f = malloc(sizeof(float));
 	
 	// Calculate the shines
-	UIImage *shineX = [UIImage imageWithSize:_baseImage.size drawing:^(CGContextRef context, CGRect drawingRect)
-					   {
-						   CGContextDrawConicalGradientWithDictionary(context, drawingRect,
-																	  @{@(modff((0.09375 + y/4 + x/8 + 1), f)): [UIColor colorWithWhite:0.40f alpha:1.0f],
-																	  @(modff((0.25000 + y/4 + x/8 + 1), f)): [UIColor colorWithWhite:0.90f alpha:1.0f],
-																	  @(modff((0.40625 + y/4 + x/8 + 1), f)): [UIColor colorWithWhite:0.40f alpha:1.0f],
-																	  @(modff((0.59375 + y/4 + x/8 + 1), f)): [UIColor colorWithWhite:0.40f alpha:1.0f],
-																	  @(modff((0.75000 + y/4 + x/8 + 1), f)): [UIColor colorWithWhite:0.90f alpha:1.0f],
-																	  @(modff((0.90625 + y/4 + x/8 + 1), f)): [UIColor colorWithWhite:0.40f alpha:1.0f]});
-					   }];
+	void (^drawingX)(CGContextRef context, CGRect drawingRect) = ^(CGContextRef context, CGRect drawingRect) {
+		NSDictionary *colorStops = @{@(modff((0.09375 + y/4 + x/8 + 1), f)): [UIColor colorWithWhite:0.40f alpha:1.0f],
+							         @(modff((0.25000 + y/4 + x/8 + 1), f)): [UIColor colorWithWhite:0.90f alpha:1.0f],
+							         @(modff((0.40625 + y/4 + x/8 + 1), f)): [UIColor colorWithWhite:0.40f alpha:1.0f],
+							         @(modff((0.59375 + y/4 + x/8 + 1), f)): [UIColor colorWithWhite:0.40f alpha:1.0f],
+							         @(modff((0.75000 + y/4 + x/8 + 1), f)): [UIColor colorWithWhite:0.90f alpha:1.0f],
+							         @(modff((0.90625 + y/4 + x/8 + 1), f)): [UIColor colorWithWhite:0.40f alpha:1.0f]};
+        CGContextDrawConicalGradientWithDictionary(context, drawingRect, colorStops);
+    };
 	
-	UIImage *shineY = [UIImage imageWithSize:_baseImage.size drawing:^(CGContextRef context, CGRect drawingRect)
-					   {
-						   CGContextDrawConicalGradientWithDictionary(context, drawingRect,
-																	  @{@(modff((0.09375 - y/4 + x/8 + 1), f)): [UIColor colorWithWhite:0.40f alpha:1.0f],
-																	  @(modff((0.25000 - y/4 + x/8 + 1), f)): [UIColor colorWithWhite:0.90f alpha:1.0f],
-																	  @(modff((0.40625 - y/4 + x/8 + 1), f)): [UIColor colorWithWhite:0.40f alpha:1.0f],
-																	  @(modff((0.59375 - y/4 + x/8 + 1), f)): [UIColor colorWithWhite:0.40f alpha:1.0f],
-																	  @(modff((0.75000 - y/4 + x/8 + 1), f)): [UIColor colorWithWhite:0.90f alpha:1.0f],
-																	  @(modff((0.90625 - y/4 + x/8 + 1), f)): [UIColor colorWithWhite:0.40f alpha:1.0f]});
-					   }];
+	UIImage *shineX = [UIImage imageWithSize:_baseImage.size drawing:drawingX];
+	
+	void (^drawingY)(CGContextRef context, CGRect drawingRect) = ^(CGContextRef context, CGRect drawingRect) {
+		NSDictionary *colorStops = @{@(modff((0.09375 - y/4 + x/8 + 1), f)): [UIColor colorWithWhite:0.40f alpha:1.0f],
+							         @(modff((0.25000 - y/4 + x/8 + 1), f)): [UIColor colorWithWhite:0.90f alpha:1.0f],
+							         @(modff((0.40625 - y/4 + x/8 + 1), f)): [UIColor colorWithWhite:0.40f alpha:1.0f],
+							         @(modff((0.59375 - y/4 + x/8 + 1), f)): [UIColor colorWithWhite:0.40f alpha:1.0f],
+							         @(modff((0.75000 - y/4 + x/8 + 1), f)): [UIColor colorWithWhite:0.90f alpha:1.0f],
+							         @(modff((0.90625 - y/4 + x/8 + 1), f)): [UIColor colorWithWhite:0.40f alpha:1.0f]};
+		CGContextDrawConicalGradientWithDictionary(context, drawingRect, colorStops);
+	};
+	
+	UIImage *shineY = [UIImage imageWithSize:_baseImage.size drawing:drawingY];
 	
 	// Create the image
 	UIImage *knobImage = [self createKnobWithBase:_baseImage
-										 andShine:shineX withAlpha:(1.0f-x)
-										 andShine:shineY withAlpha:(1.0f+x)];
+										 andShine:shineX withAlpha:(1.0f+x)
+										 andShine:shineY withAlpha:(1.0f-x)];
 	
 	knobImage = [knobImage imageWithShadowOfSize:2];
 	

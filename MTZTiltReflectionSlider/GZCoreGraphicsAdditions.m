@@ -45,7 +45,7 @@ static inline int lerp(int a, int b, float w)
 @end
 
 void CGContextDrawConicalGradientWithDictionary(CGContextRef context, CGRect rect, NSDictionary *colorsForLocations)
-{
+{	
 	// Assuming dictionary was previously populated with NSNumber values.
 	// Sort the keys
 	NSArray *orderedKeys = [[colorsForLocations allKeys] sortedArrayUsingComparator:^NSComparisonResult(id obj1, id obj2) {
@@ -69,7 +69,7 @@ void CGContextDrawConicalGradientWithDictionary(CGContextRef context, CGRect rec
 }
 
 void CGContextDrawConicalGradient(CGContextRef context, CGRect rect, NSArray *colorArray, NSArray *locationArray)
-{
+{	
 	// The arrays must match in size
 	if ( [colorArray count] != [locationArray count] ) {
 		NSLog(@"The amount of colors much must the number of locations");
