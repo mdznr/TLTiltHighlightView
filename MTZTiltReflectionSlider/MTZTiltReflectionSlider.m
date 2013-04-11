@@ -12,6 +12,8 @@
 #import "MTZTiltReflectionSlider.h"
 #import "GZCoreGraphicsAdditions.h"
 #import "UIImage+Shadow.h"
+#import "UIImage+Rotate.h"
+#import "UISlider+ForAllStates.h"
 
 // Private properties.
 @interface MTZTiltReflectionSlider ()
@@ -26,6 +28,8 @@
 @property double previousPitch;
 
 @property UIImage *baseImage;
+
+@property UIImage *shine;
 
 - (UIImage *)createKnobWithBase:(UIImage *)base
 					   andShine:(UIImage *)shine1 withAlpha:(CGFloat)alpha1
@@ -105,9 +109,11 @@
 	switch ( _size ) {
 		case MTZTiltReflectionSliderSizeRegular:
 			_baseImage = [UIImage imageNamed:@"MTZTiltReflectionSliderKnobBase"];
+			_shine = [UIImage imageNamed:@"MTZTiltReflectionSliderShine.jpg"];
 			break;
 		case MTZTiltReflectionSliderSizeSmall:
 			_baseImage = [UIImage imageNamed:@"MTZTiltReflectionSliderKnobBase-Small"];
+			_shine = [UIImage imageNamed:@"MTZTiltReflectionSliderShine-Small.jpg"];
 			break;
 		default:
 			break;
@@ -209,7 +215,7 @@
             pitch = deviceMotion.attitude.roll;
             break;
     }
-    
+	
     // Update the image with the calculated values.
     [self updateButtonImageForRoll:roll pitch:pitch];
 }
@@ -262,51 +268,25 @@
 
 // Uppdates the Thumb (knob) image for the given roll and pitch
 -(void)updateButtonImageForRoll:(CGFloat)roll pitch:(CGFloat)pitch
-{	
+{
+	
 	// Get the x and y motions
 	// x and y vary from -1 to 1
-	CGFloat x = -roll;
-	CGFloat y =  pitch;
+	CGFloat x = roll;
+	CGFloat y = pitch;
 	
-	// Empty float value to be used in modff
-	float *f = malloc(sizeof(float));
-	
-	// Calculate the shines
-	void (^drawingX)(CGContextRef context, CGRect drawingRect) = ^(CGContextRef context, CGRect drawingRect) {
-		NSDictionary *colorStops = @{@(modff((0.09375 + y/4 + x/8 + 1), f)): [UIColor colorWithWhite:0.40f alpha:1.0f],
-							         @(modff((0.25000 + y/4 + x/8 + 1), f)): [UIColor colorWithWhite:0.90f alpha:1.0f],
-							         @(modff((0.40625 + y/4 + x/8 + 1), f)): [UIColor colorWithWhite:0.40f alpha:1.0f],
-							         @(modff((0.59375 + y/4 + x/8 + 1), f)): [UIColor colorWithWhite:0.40f alpha:1.0f],
-							         @(modff((0.75000 + y/4 + x/8 + 1), f)): [UIColor colorWithWhite:0.90f alpha:1.0f],
-							         @(modff((0.90625 + y/4 + x/8 + 1), f)): [UIColor colorWithWhite:0.40f alpha:1.0f]};
-        CGContextDrawConicalGradientWithDictionary(context, drawingRect, colorStops);
-    };
-	
-	UIImage *shineX = [UIImage imageWithSize:_baseImage.size drawing:drawingX];
-	
-	void (^drawingY)(CGContextRef context, CGRect drawingRect) = ^(CGContextRef context, CGRect drawingRect) {
-		NSDictionary *colorStops = @{@(modff((0.09375 - y/4 + x/8 + 1), f)): [UIColor colorWithWhite:0.40f alpha:1.0f],
-							         @(modff((0.25000 - y/4 + x/8 + 1), f)): [UIColor colorWithWhite:0.90f alpha:1.0f],
-							         @(modff((0.40625 - y/4 + x/8 + 1), f)): [UIColor colorWithWhite:0.40f alpha:1.0f],
-							         @(modff((0.59375 - y/4 + x/8 + 1), f)): [UIColor colorWithWhite:0.40f alpha:1.0f],
-							         @(modff((0.75000 - y/4 + x/8 + 1), f)): [UIColor colorWithWhite:0.90f alpha:1.0f],
-							         @(modff((0.90625 - y/4 + x/8 + 1), f)): [UIColor colorWithWhite:0.40f alpha:1.0f]};
-		CGContextDrawConicalGradientWithDictionary(context, drawingRect, colorStops);
-	};
-	
-	UIImage *shineY = [UIImage imageWithSize:_baseImage.size drawing:drawingY];
+	UIImage *shineX = [_shine imageWithRotation:(M_PI_4 - x + y)];
+	UIImage *shineY = [_shine imageWithRotation:(M_PI_4 - x - y)];
 	
 	// Create the image
 	UIImage *knobImage = [self createKnobWithBase:_baseImage
-										 andShine:shineX withAlpha:(1.0f+x)
-										 andShine:shineY withAlpha:(1.0f-x)];
-	
+										 andShine:shineX withAlpha:(1.0f - x)
+										 andShine:shineY withAlpha:(1.0f + x)];
 	knobImage = [knobImage imageWithShadowOfSize:2];
+	// possible to combine the above two methods?
 	
-	// Set it as the thumbImage
-    [self setThumbImage:knobImage forState:UIControlStateNormal];
-	[self setThumbImage:knobImage forState:UIControlStateSelected];
-    [self setThumbImage:knobImage forState:UIControlStateHighlighted];
+	// Set it as the thumbImage for all states
+    [self setThumbImageForAllStates:knobImage];
 }
 
 @end
