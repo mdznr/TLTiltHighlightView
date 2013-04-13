@@ -37,8 +37,18 @@
 		C933F86016FCFC6B007B1760 /* MTZTiltReflectionSliderTrackFill.png in Resources */ = {isa = PBXBuildFile; fileRef = C933F85816FCFC6B007B1760 /* MTZTiltReflectionSliderTrackFill.png */; };
 		C933F86116FCFC6B007B1760 /* MTZTiltReflectionSliderTrackFill@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C933F85916FCFC6B007B1760 /* MTZTiltReflectionSliderTrackFill@2x.png */; };
 		C933F86416FE4C8A007B1760 /* UIImage+Shadow.m in Sources */ = {isa = PBXBuildFile; fileRef = C933F86316FE4C8A007B1760 /* UIImage+Shadow.m */; };
+		C939738417188E9700380D31 /* MTZTiltReflectionSliderShineClear-Small.png in Resources */ = {isa = PBXBuildFile; fileRef = C939738017188E9700380D31 /* MTZTiltReflectionSliderShineClear-Small.png */; };
+		C939738517188E9700380D31 /* MTZTiltReflectionSliderShineClear-Small@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C939738117188E9700380D31 /* MTZTiltReflectionSliderShineClear-Small@2x.png */; };
+		C939738617188E9700380D31 /* MTZTiltReflectionSliderShineClear.png in Resources */ = {isa = PBXBuildFile; fileRef = C939738217188E9700380D31 /* MTZTiltReflectionSliderShineClear.png */; };
+		C939738717188E9700380D31 /* MTZTiltReflectionSliderShineClear@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C939738317188E9700380D31 /* MTZTiltReflectionSliderShineClear@2x.png */; };
 		C974616D16F11F5A00C2C633 /* TLViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C974616C16F11F5A00C2C633 /* TLViewController.xib */; };
 		C9954B85170A5C6F00302267 /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C9954B84170A5C6F00302267 /* MediaPlayer.framework */; };
+		C9CB70CC1714D16C00311083 /* MTZTiltGradientButton.m in Sources */ = {isa = PBXBuildFile; fileRef = C9CB70CB1714D16C00311083 /* MTZTiltGradientButton.m */; };
+		C9CB70CF1714FB5200311083 /* Star.png in Resources */ = {isa = PBXBuildFile; fileRef = C9CB70CD1714FB5200311083 /* Star.png */; };
+		C9CB70D01714FB5200311083 /* Star@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C9CB70CE1714FB5200311083 /* Star@2x.png */; };
+		C9CB70D31715BB7D00311083 /* UIImage+Tint.m in Sources */ = {isa = PBXBuildFile; fileRef = C9CB70D21715BB7D00311083 /* UIImage+Tint.m */; };
+		C9CB70D61716418200311083 /* UIImage+Rotate.m in Sources */ = {isa = PBXBuildFile; fileRef = C9CB70D51716418200311083 /* UIImage+Rotate.m */; };
+		C9CB70E1171664F900311083 /* UISlider+ForAllStates.m in Sources */ = {isa = PBXBuildFile; fileRef = C9CB70E0171664F900311083 /* UISlider+ForAllStates.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -82,8 +92,22 @@
 		C933F85916FCFC6B007B1760 /* MTZTiltReflectionSliderTrackFill@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "MTZTiltReflectionSliderTrackFill@2x.png"; path = "MTZTiltReflectionSlider/MTZTiltReflectionSliderTrackFill@2x.png"; sourceTree = SOURCE_ROOT; };
 		C933F86216FE4C8A007B1760 /* UIImage+Shadow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIImage+Shadow.h"; path = "../MTZTiltReflectionSlider/UIImage+Shadow.h"; sourceTree = "<group>"; };
 		C933F86316FE4C8A007B1760 /* UIImage+Shadow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIImage+Shadow.m"; path = "../MTZTiltReflectionSlider/UIImage+Shadow.m"; sourceTree = "<group>"; };
+		C939738017188E9700380D31 /* MTZTiltReflectionSliderShineClear-Small.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "MTZTiltReflectionSliderShineClear-Small.png"; path = "MTZTiltReflectionSlider/MTZTiltReflectionSliderShineClear-Small.png"; sourceTree = SOURCE_ROOT; };
+		C939738117188E9700380D31 /* MTZTiltReflectionSliderShineClear-Small@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "MTZTiltReflectionSliderShineClear-Small@2x.png"; path = "MTZTiltReflectionSlider/MTZTiltReflectionSliderShineClear-Small@2x.png"; sourceTree = SOURCE_ROOT; };
+		C939738217188E9700380D31 /* MTZTiltReflectionSliderShineClear.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = MTZTiltReflectionSliderShineClear.png; path = MTZTiltReflectionSlider/MTZTiltReflectionSliderShineClear.png; sourceTree = SOURCE_ROOT; };
+		C939738317188E9700380D31 /* MTZTiltReflectionSliderShineClear@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "MTZTiltReflectionSliderShineClear@2x.png"; path = "MTZTiltReflectionSlider/MTZTiltReflectionSliderShineClear@2x.png"; sourceTree = SOURCE_ROOT; };
 		C974616C16F11F5A00C2C633 /* TLViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = TLViewController.xib; path = "TLTiltHighlightView Test/TLViewController.xib"; sourceTree = SOURCE_ROOT; };
 		C9954B84170A5C6F00302267 /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
+		C9CB70CA1714D16C00311083 /* MTZTiltGradientButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTZTiltGradientButton.h; sourceTree = "<group>"; };
+		C9CB70CB1714D16C00311083 /* MTZTiltGradientButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTZTiltGradientButton.m; sourceTree = "<group>"; };
+		C9CB70CD1714FB5200311083 /* Star.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Star.png; sourceTree = "<group>"; };
+		C9CB70CE1714FB5200311083 /* Star@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Star@2x.png"; sourceTree = "<group>"; };
+		C9CB70D11715BB7D00311083 /* UIImage+Tint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Tint.h"; sourceTree = "<group>"; };
+		C9CB70D21715BB7D00311083 /* UIImage+Tint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Tint.m"; sourceTree = "<group>"; };
+		C9CB70D41716418200311083 /* UIImage+Rotate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Rotate.h"; sourceTree = "<group>"; };
+		C9CB70D51716418200311083 /* UIImage+Rotate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Rotate.m"; sourceTree = "<group>"; };
+		C9CB70DF171664F900311083 /* UISlider+ForAllStates.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UISlider+ForAllStates.h"; sourceTree = "<group>"; };
+		C9CB70E0171664F900311083 /* UISlider+ForAllStates.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UISlider+ForAllStates.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -141,6 +165,12 @@
 				5E9C08E116E65E3F0072CCC7 /* TLViewController.h */,
 				5E9C08E216E65E3F0072CCC7 /* TLViewController.m */,
 				C974616C16F11F5A00C2C633 /* TLViewController.xib */,
+				C9CB70CA1714D16C00311083 /* MTZTiltGradientButton.h */,
+				C9CB70CB1714D16C00311083 /* MTZTiltGradientButton.m */,
+				C9CB70D11715BB7D00311083 /* UIImage+Tint.h */,
+				C9CB70D21715BB7D00311083 /* UIImage+Tint.m */,
+				C9CB70CD1714FB5200311083 /* Star.png */,
+				C9CB70CE1714FB5200311083 /* Star@2x.png */,
 				C933F85116FCE6E7007B1760 /* TLTiltHighlightView */,
 				C933F84D16FCE6D9007B1760 /* MTZTiltShadowView */,
 				C933F84816FCE681007B1760 /* MTZTiltReflectionSlider */,
@@ -181,6 +211,10 @@
 			children = (
 				C933F83F16FCE67B007B1760 /* MTZTiltReflectionSlider.h */,
 				C933F84016FCE67B007B1760 /* MTZTiltReflectionSlider.m */,
+				C9CB70DF171664F900311083 /* UISlider+ForAllStates.h */,
+				C9CB70E0171664F900311083 /* UISlider+ForAllStates.m */,
+				C9CB70D41716418200311083 /* UIImage+Rotate.h */,
+				C9CB70D51716418200311083 /* UIImage+Rotate.m */,
 				C933F83816FCE67A007B1760 /* GZCoreGraphicsAdditions.h */,
 				C933F83916FCE67A007B1760 /* GZCoreGraphicsAdditions.m */,
 				C933F86216FE4C8A007B1760 /* UIImage+Shadow.h */,
@@ -197,6 +231,10 @@
 				C933F85316FCFC6B007B1760 /* MTZTiltReflectionSliderKnobBase-Small@2x.png */,
 				C933F85416FCFC6B007B1760 /* MTZTiltReflectionSliderKnobBase.png */,
 				C933F85516FCFC6B007B1760 /* MTZTiltReflectionSliderKnobBase@2x.png */,
+				C939738017188E9700380D31 /* MTZTiltReflectionSliderShineClear-Small.png */,
+				C939738117188E9700380D31 /* MTZTiltReflectionSliderShineClear-Small@2x.png */,
+				C939738217188E9700380D31 /* MTZTiltReflectionSliderShineClear.png */,
+				C939738317188E9700380D31 /* MTZTiltReflectionSliderShineClear@2x.png */,
 				C933F85616FCFC6B007B1760 /* MTZTiltReflectionSliderTrackEmpty.png */,
 				C933F85716FCFC6B007B1760 /* MTZTiltReflectionSliderTrackEmpty@2x.png */,
 				C933F85816FCFC6B007B1760 /* MTZTiltReflectionSliderTrackFill.png */,
@@ -293,6 +331,12 @@
 				C933F85F16FCFC6B007B1760 /* MTZTiltReflectionSliderTrackEmpty@2x.png in Resources */,
 				C933F86016FCFC6B007B1760 /* MTZTiltReflectionSliderTrackFill.png in Resources */,
 				C933F86116FCFC6B007B1760 /* MTZTiltReflectionSliderTrackFill@2x.png in Resources */,
+				C9CB70CF1714FB5200311083 /* Star.png in Resources */,
+				C9CB70D01714FB5200311083 /* Star@2x.png in Resources */,
+				C939738417188E9700380D31 /* MTZTiltReflectionSliderShineClear-Small.png in Resources */,
+				C939738517188E9700380D31 /* MTZTiltReflectionSliderShineClear-Small@2x.png in Resources */,
+				C939738617188E9700380D31 /* MTZTiltReflectionSliderShineClear.png in Resources */,
+				C939738717188E9700380D31 /* MTZTiltReflectionSliderShineClear@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -311,6 +355,10 @@
 				C933F84C16FCE6D6007B1760 /* MTZTiltShadowView.m in Sources */,
 				C933F85016FCE6E4007B1760 /* TLTiltHighlightView.m in Sources */,
 				C933F86416FE4C8A007B1760 /* UIImage+Shadow.m in Sources */,
+				C9CB70CC1714D16C00311083 /* MTZTiltGradientButton.m in Sources */,
+				C9CB70D31715BB7D00311083 /* UIImage+Tint.m in Sources */,
+				C9CB70D61716418200311083 /* UIImage+Rotate.m in Sources */,
+				C9CB70E1171664F900311083 /* UISlider+ForAllStates.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -376,6 +424,7 @@
 		5E9C08CB16E63B440072CCC7 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "TLTiltHighlightView Test/TLTiltHighlightView-Test-Prefix.pch";
 				INFOPLIST_FILE = "$(SRCROOT)/TLTiltHighlightView Test/TLTiltHighlightView-Test-Info.plist";

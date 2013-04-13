@@ -19,6 +19,8 @@
 @property (strong, nonatomic) IBOutlet MTZTiltReflectionSlider *slider;
 @property (strong, nonatomic) IBOutlet MTZTiltReflectionSlider *smallSlider;
 
+@property (strong, nonatomic) MPMusicPlayerController *musicPlayer;
+
 @end
 
 @implementation TLViewController
@@ -29,11 +31,11 @@
 	[_slider setSize:MTZTiltReflectionSliderSizeRegular];
 	[_smallSlider setSize:MTZTiltReflectionSliderSizeSmall];
 	
-	MPVolumeView *volumeView = [[MPVolumeView alloc] initWithFrame: CGRectZero];
+	MPVolumeView *volumeView = [[MPVolumeView alloc] initWithFrame:CGRectZero];
     [self.view addSubview: volumeView];
 	
-	MPMusicPlayerController *musicPlayer = [MPMusicPlayerController applicationMusicPlayer];
-	[_slider setValue:musicPlayer.volume animated:NO];
+	_musicPlayer = [MPMusicPlayerController applicationMusicPlayer];
+	[_slider setValue:_musicPlayer.volume animated:NO];
 }
 
 - (BOOL)shouldAutorotate
@@ -60,8 +62,8 @@
 
 - (void)becomeActive
 {
-	[_slider resumeMotionDetection];
-	[_smallSlider resumeMotionDetection];
+	[_slider startMotionDetection];
+	[_smallSlider startMotionDetection];
 }
 
 - (void)volumeDidChangeTo:(float)volume
@@ -71,10 +73,7 @@
 
 - (IBAction)sliderChanged:(UISlider *)sender
 {
-	MPMusicPlayerController *musicPlayer = [MPMusicPlayerController applicationMusicPlayer];
-	[musicPlayer setVolume:sender.value];
+//	[_musicPlayer performSelector:@selector(setVolume:) withObject:sender.value];
 }
-
-
 
 @end

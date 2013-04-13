@@ -21,19 +21,11 @@
 // Our motion manager.
 @property (nonatomic, strong) CMMotionManager *motionManager;
 
-@property CGFloat xMotion;
-@property CGFloat yMotion;
+@property (atomic) double previousRoll;
+@property (atomic) double previousPitch;
 
-@property double previousRoll;
-@property double previousPitch;
-
-@property UIImage *baseImage;
-
-@property UIImage *shine;
-
-- (UIImage *)createKnobWithBase:(UIImage *)base
-					   andShine:(UIImage *)shine1 withAlpha:(CGFloat)alpha1
-					   andShine:(UIImage *)shine2 withAlpha:(CGFloat)alpha2;
+@property (nonatomic, strong) UIImageView *shine1;
+@property (nonatomic, strong) UIImageView *shine2;
 
 @end
 
@@ -46,8 +38,8 @@
 {
     self = [super initWithCoder:aCoder];
     if ( self ) {
-		[self setSize:MTZTiltReflectionSliderSizeRegular];
         [self setup];
+		[self setSize:MTZTiltReflectionSliderSizeRegular];
     }
     return self;
 }
@@ -56,8 +48,8 @@
 {
     self = [super initWithFrame:frame];
     if ( self ) {
-		[self setSize:MTZTiltReflectionSliderSizeRegular];
         [self setup];
+		[self setSize:MTZTiltReflectionSliderSizeRegular];
     }
     return self;
 }
@@ -66,8 +58,8 @@
 {
 	self = [super init];
 	if ( self ) {
-		[self setSize:sliderSize];
 		[self setup];
+		[self setSize:sliderSize];
 	}
 	return self;
 }
@@ -80,7 +72,13 @@
 // We need to stop our motionManager from continuing to update once our instance is deallocated.
 - (void)dealloc
 {
-    [self.motionManager stopAccelerometerUpdates];
+	[self stopMotionDetection];
+	@try {
+		[(UIImageView *)[self valueForKey:@"_thumbView"] removeObserver:self
+															 forKeyPath:@"frame"
+																context:nil];
+	} @catch (NSException *exception) {
+	}
 }
 
 #pragma mark - Private methods
@@ -97,29 +95,49 @@
 								resizableImageWithCapInsets:UIEdgeInsetsMake(0, 0, 0, 6)]
 					  forState:UIControlStateNormal];
 	
+	_shine1 = [[UIImageView alloc] init];
+	_shine2 = [[UIImageView alloc] init];
+	[self addSubview:_shine1];
+	[self addSubview:_shine2];
+	
 	// Set up our motion updates
-	[self setupMotionDetection];
+	[self getReadyForMotionDetection];
 }
 
 - (void)setSize:(MTZTiltReflectionSliderSize)size
 {
+//	if ( _size == size ) return;
+	
 	_size = size;
 	
+	CGSize oldSize = CGSizeZero;
+	CGSize newSize = CGSizeZero;
+	
 	// Set the base image
-	switch ( _size ) {
+	switch ( size ) {
 		case MTZTiltReflectionSliderSizeRegular:
-			_baseImage = [UIImage imageNamed:@"MTZTiltReflectionSliderKnobBase"];
-			_shine = [UIImage imageNamed:@"MTZTiltReflectionSliderShine.jpg"];
+			oldSize = self.shine1.image.size;
+			newSize = [UIImage imageNamed:@"MTZTiltReflectionSliderShineClear"].size;
+			[self.shine1 setImage:[UIImage imageNamed:@"MTZTiltReflectionSliderShineClear"]];
+			[self.shine2 setImage:[UIImage imageNamed:@"MTZTiltReflectionSliderShineClear"]];
+			[self.shine1 setBounds:(CGRect){0,0,newSize.width,newSize.height}];
+			[self.shine2 setBounds:(CGRect){0,0,newSize.width,newSize.height}];
+			[self setThumbImageForAllStates:[[UIImage imageNamed:@"MTZTiltReflectionSliderKnobBase"] imageWithShadowOfSize:2.0f]];
 			break;
 		case MTZTiltReflectionSliderSizeSmall:
-			_baseImage = [UIImage imageNamed:@"MTZTiltReflectionSliderKnobBase-Small"];
-			_shine = [UIImage imageNamed:@"MTZTiltReflectionSliderShine-Small.jpg"];
+			oldSize = self.shine1.image.size;
+			newSize = [UIImage imageNamed:@"MTZTiltReflectionSliderShineClear-Small"].size;
+			[self.shine1 setImage:[UIImage imageNamed:@"MTZTiltReflectionSliderShineClear-Small"]];
+			[self.shine2 setImage:[UIImage imageNamed:@"MTZTiltReflectionSliderShineClear-Small"]];
+			[self.shine1 setBounds:(CGRect){0,0,newSize.width,newSize.height}];
+			[self.shine2 setBounds:(CGRect){0,0,newSize.width,newSize.height}];
+			[self setThumbImageForAllStates:[[UIImage imageNamed:@"MTZTiltReflectionSliderKnobBase-Small"] imageWithShadowOfSize:2.0f]];
 			break;
 		default:
 			break;
 	}
 	
-	[self updateButtonImageForRoll:_xMotion pitch:_yMotion];
+	[self updateButtonImageForRoll:_previousRoll pitch:_previousPitch];
 }
 
 - (CGRect)trackRectForBounds:(CGRect)bounds
@@ -128,25 +146,10 @@
 	return (CGRect){0, 0, bounds.size.width, 10};
 }
 
-// Starts the Motion Detection
-- (void)setupMotionDetection
+// Gets ready for the Motion Detection
+- (void)getReadyForMotionDetection
 {
-    NSAssert(self.motionManager == nil, @"Motion manager being set up more than once.");
-    
-    // Set up a motion manager and start motion updates, calling deviceMotionDidUpdate: when updated.
-    self.motionManager = [[CMMotionManager alloc] init];
-	self.motionManager.deviceMotionUpdateInterval = 1.0/60.0;
-	
-	if ( self.motionManager.deviceMotionAvailable ) {
-		NSOperationQueue *queue = [NSOperationQueue currentQueue];
-		[self.motionManager startDeviceMotionUpdatesToQueue:queue
-												withHandler:^(CMDeviceMotion *motionData, NSError *error) {
-													[self deviceMotionDidUpdate:motionData];
-												}];
-	}
-	
 	// Need to call once for the initial load
-    
     [self updateButtonImageForRoll:0 pitch:0];
 }
 
@@ -158,7 +161,7 @@
 	}
 }
 
-- (void)resumeMotionDetection
+- (void)startMotionDetection
 {
 	if ( self.motionManager != nil ) {
 		NSLog(@"Motion is already active.");
@@ -176,23 +179,28 @@
 													[self deviceMotionDidUpdate:motionData];
 												}];
 	}
+	
+	[(UIImageView *)[self valueForKeyPath:@"_thumbView"] addObserver:self
+														  forKeyPath:@"frame"
+															 options:NSKeyValueObservingOptionNew
+															 context:nil];
+	[self updateShinePositions];
+	[self bringSubviewToFront:_shine1];
+	[self bringSubviewToFront:_shine2];
 }
 
 #pragma mark CoreMotion Methods
 
 - (void)deviceMotionDidUpdate:(CMDeviceMotion *)deviceMotion
-{
+{	
 	// Don't redraw if the change in motion wasn't enough.
 	if ( ABS(deviceMotion.attitude.roll - _previousRoll) < 0.003315f ||
 		 ABS(deviceMotion.attitude.pitch - _previousPitch) < 0.003315f ) {
 		return;
 	}
 	
-	_previousRoll = deviceMotion.attitude.roll;
-	_previousPitch = deviceMotion.attitude.pitch;
-	
-    // Called when the deviceMotion property of our CMMotionManger updates.
-    // Recalculates the gradient locations.
+	self.previousRoll = deviceMotion.attitude.roll;
+	self.previousPitch = deviceMotion.attitude.pitch;
     
     // We need to account for the interface's orientation when calculating the relative roll.
     CGFloat roll = 0.0f;
@@ -220,73 +228,38 @@
     [self updateButtonImageForRoll:roll pitch:pitch];
 }
 
-- (UIImage *)createKnobWithBase:(UIImage *)base
-					   andShine:(UIImage *)shine1 withAlpha:(CGFloat)alpha1
-					   andShine:(UIImage *)shine2 withAlpha:(CGFloat)alpha2
-{	
-	// Made masking made possible with help from Tim Davies https://github.com/tmdvs
-	CGFloat scale = [[UIScreen mainScreen] scale];
-	CGSize imageSize = base.size;
-	
-	CALayer *circle = [[CALayer alloc] init];
-	circle.cornerRadius = (imageSize.height) / 2;
-	circle.masksToBounds = YES;
-	circle.contentsScale = scale;
-	circle.frame = CGRectMake(0, 0, imageSize.width, imageSize.height);
-	
-	// Draw the base and shines
-	UIGraphicsBeginImageContextWithOptions(imageSize, NO, scale);
-	CGContextRef context = UIGraphicsGetCurrentContext();
-	CGContextSaveGState(context);
-	
-	CGPoint point = CGPointMake(0, 0);
-	[base drawAtPoint:point];
-	[shine1 drawAtPoint:point blendMode:kCGBlendModeOverlay alpha:alpha1];
-	[shine2 drawAtPoint:point blendMode:kCGBlendModeOverlay alpha:alpha2];
-	CGContextRestoreGState(context);
-	
-	UIImage *knobImage = UIGraphicsGetImageFromCurrentImageContext();
-	UIGraphicsEndImageContext();
-	
-	// Draw the final image
-	UIGraphicsBeginImageContextWithOptions(imageSize, NO, scale);
-	circle.contents = (id)knobImage.CGImage;
-	context = UIGraphicsGetCurrentContext();
-	
-	CGContextSaveGState(context);
-	[circle renderInContext:context];
-	CGContextRestoreGState(context);
-	
-	UIImage *outputImage = [UIImage imageWithCGImage:UIGraphicsGetImageFromCurrentImageContext().CGImage
-											   scale:scale
-										 orientation:UIImageOrientationUp];
-	
-	UIGraphicsEndImageContext();
-	
-	return outputImage;
-}
-
 // Uppdates the Thumb (knob) image for the given roll and pitch
 -(void)updateButtonImageForRoll:(CGFloat)roll pitch:(CGFloat)pitch
-{
-	
+{	
 	// Get the x and y motions
 	// x and y vary from -1 to 1
 	CGFloat x = roll;
 	CGFloat y = pitch;
 	
-	UIImage *shineX = [_shine imageWithRotation:(M_PI_4 - x + y)];
-	UIImage *shineY = [_shine imageWithRotation:(M_PI_4 - x - y)];
-	
-	// Create the image
-	UIImage *knobImage = [self createKnobWithBase:_baseImage
-										 andShine:shineX withAlpha:(1.0f - x)
-										 andShine:shineY withAlpha:(1.0f + x)];
-	knobImage = [knobImage imageWithShadowOfSize:2];
-	// possible to combine the above two methods?
-	
-	// Set it as the thumbImage for all states
-    [self setThumbImageForAllStates:knobImage];
+	[UIView beginAnimations:nil context:nil];
+	[UIView setAnimationBeginsFromCurrentState:YES];
+	[UIView setAnimationDuration:1.0f/60.0f];
+	[UIView setAnimationCurve:UIViewAnimationCurveEaseInOut];
+	[_shine1 setTransform:CGAffineTransformMakeRotation(-x+y)];
+	[_shine1 setAlpha:(1.0f + x)];
+	[_shine2 setTransform:CGAffineTransformMakeRotation(-x-y)];
+	[_shine2 setAlpha:(1.0f - x)];
+	[UIView commitAnimations];
+}
+
+- (void)updateShinePositions
+{
+	[_shine1 setCenter:[(UIImageView *)[self valueForKeyPath:@"_thumbView"] center]];
+	[_shine2 setCenter:[(UIImageView *)[self valueForKeyPath:@"_thumbView"] center]];
+}
+
+- (void)observeValueForKeyPath:(NSString *)keyPath
+					  ofObject:(id)object
+						change:(NSDictionary *)change
+					   context:(void *)context
+{
+	NSLog(@"%@ \n %@ \n %@ \n ", keyPath, object, change);
+	[self updateShinePositions];
 }
 
 @end

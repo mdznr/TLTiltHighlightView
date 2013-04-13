@@ -198,7 +198,7 @@
 						<string key="NSFrame">{{36, 40}, {248, 23}}</string>
 						<reference key="NSSuperview" ref="421344057"/>
 						<reference key="NSWindow"/>
-						<reference key="NSNextKeyView" ref="20457547"/>
+						<reference key="NSNextKeyView"/>
 						<string key="NSReuseIdentifierKey">_NS:9</string>
 						<bool key="IBUIOpaque">NO</bool>
 						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
@@ -10211,8 +10211,8 @@ AAEAAQABA</bytes>
 								<string key="typeIdentifier">com.apple.InterfaceBuilder.userDefinedRuntimeAttributeType.color</string>
 								<string key="keyPath">shadowColor</string>
 								<object class="NSColor" key="value">
-									<int key="NSColorSpace">1</int>
-									<bytes key="NSRGB">MSAxIDEgMC4yNQA</bytes>
+									<int key="NSColorSpace">3</int>
+									<bytes key="NSWhite">MSAwLjQAA</bytes>
 								</object>
 							</object>
 							<object class="IBUserDefinedRuntimeAttribute">
@@ -10241,7 +10241,7 @@ AAEAAQABA</bytes>
 								<string key="keyPath">shadowColor</string>
 								<object class="NSColor" key="value">
 									<int key="NSColorSpace">1</int>
-									<bytes key="NSRGB">MSAxIDEgMC4yNQA</bytes>
+									<bytes key="NSRGB">MSAxIDEgMC40AA</bytes>
 								</object>
 							</object>
 							<object class="IBUserDefinedRuntimeAttribute">
@@ -10270,7 +10270,7 @@ AAEAAQABA</bytes>
 								<string key="keyPath">shadowColor</string>
 								<object class="NSColor" key="value">
 									<int key="NSColorSpace">1</int>
-									<bytes key="NSRGB">MSAxIDEgMC4yNQA</bytes>
+									<bytes key="NSRGB">MSAxIDEgMC40AA</bytes>
 								</object>
 							</object>
 							<object class="IBUserDefinedRuntimeAttribute">
@@ -10281,7 +10281,7 @@ AAEAAQABA</bytes>
 							<object class="IBUserDefinedRuntimeAttribute">
 								<string key="typeIdentifier">com.apple.InterfaceBuilder.userDefinedRuntimeAttributeType.string</string>
 								<string key="keyPath">maxBlurRadius</string>
-								<string key="value">0.25</string>
+								<string key="value">.25</string>
 							</object>
 						</array>
 					</object>
@@ -10290,6 +10290,7 @@ AAEAAQABA</bytes>
 				<string key="18.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 				<string key="3.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 				<string key="32.CustomClassName">MTZTiltReflectionSlider</string>
+				<dictionary class="NSMutableDictionary" key="32.IBAttributePlaceholdersKey"/>
 				<string key="32.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 				<string key="37.CustomClassName">MTZTiltReflectionSlider</string>
 				<dictionary class="NSMutableDictionary" key="37.IBAttributePlaceholdersKey"/>
@@ -10301,7 +10302,7 @@ AAEAAQABA</bytes>
 			<nil key="activeLocalization"/>
 			<dictionary class="NSMutableDictionary" key="localizations"/>
 			<nil key="sourceID"/>
-			<int key="maxID">41</int>
+			<int key="maxID">45</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<array class="NSMutableArray" key="referencedPartialClassDescriptions">

@@ -21,6 +21,6 @@ typedef enum {
 - (id)initWithSliderSize:(MTZTiltReflectionSliderSize)sliderSize;
 
 - (void)stopMotionDetection;
-- (void)resumeMotionDetection;
+- (void)startMotionDetection;
 
 @end
