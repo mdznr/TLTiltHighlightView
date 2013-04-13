@@ -194,8 +194,8 @@
 - (void)deviceMotionDidUpdate:(CMDeviceMotion *)deviceMotion
 {	
 	// Don't redraw if the change in motion wasn't enough.
-	if ( ABS(deviceMotion.attitude.roll - _previousRoll) < 0.003315f ||
-		 ABS(deviceMotion.attitude.pitch - _previousPitch) < 0.003315f ) {
+	if ( ABS(deviceMotion.attitude.roll - _previousRoll) < 0.002210f ||
+		 ABS(deviceMotion.attitude.pitch - _previousPitch) < 0.002210f ) {
 		return;
 	}
 	
@@ -238,8 +238,8 @@
 	
 	[UIView beginAnimations:nil context:nil];
 	[UIView setAnimationBeginsFromCurrentState:YES];
-	[UIView setAnimationDuration:1.0f/60.0f];
-	[UIView setAnimationCurve:UIViewAnimationCurveEaseInOut];
+	[UIView setAnimationDuration:1.0f/120.0f];
+//	[UIView setAnimationCurve:UIViewAnimationCurveEaseInOut];
 	[_shine1 setTransform:CGAffineTransformMakeRotation(-x+y)];
 	[_shine1 setAlpha:(1.0f + x)];
 	[_shine2 setTransform:CGAffineTransformMakeRotation(-x-y)];
@@ -258,7 +258,7 @@
 						change:(NSDictionary *)change
 					   context:(void *)context
 {
-	NSLog(@"%@ \n %@ \n %@ \n ", keyPath, object, change);
+//	NSLog(@"%@ \n %@ \n %@ \n ", keyPath, object, change);
 	[self updateShinePositions];
 }
 
